@@ -6,10 +6,10 @@ const availableChecks = {
   phplint: ((options, webRoot) => {
     const commandArray = ['phplint'];
     if (options.exclude !== undefined) {
-      commandArray.push('--exclude', options.exclude);
+      commandArray.push(`--exclude=${options.exclude}`);
     }
     if (options.extensions !== undefined) {
-      commandArray.push('--extensions', options.extensions);
+      commandArray.push(`--extensions=${options.extensions}`);
     }
     if (options.verbose !== undefined && options.verbose) {
       commandArray.push('-v');
@@ -21,10 +21,10 @@ const availableChecks = {
   }),
   phpcs: ((options, webRoot) => {
     const commandArray = ['phpcs'];
-    commandArray.push('--standard', options.standard !== undefined ? options.standard : 'Drupal,DrupalPractice');
-    commandArray.push('--extensions', options.extensions !== undefined ? options.extensions : 'php,module,inc,install,test,profile,theme');
+    commandArray.push(`--standard=${options.standard !== undefined ? options.standard : 'Drupal,DrupalPractice'}`);
+    commandArray.push(`--extensions=${options.extensions !== undefined ? options.extensions : 'php,module,inc,install,test,profile,theme'}`);
     if (options.ignore !== undefined) {
-      commandArray.push('--ignore', options.ignore);
+      commandArray.push(`--ignore=${options.ignore}`);
     }
     commandArray.push(options.path !== undefined ? options.path : webRoot + '/modules/custom');
     return commandArray;
