@@ -3,7 +3,11 @@
   "version": "0.1.0",
   "description": "Run DrupalQA scripts",
   "main": "index.js",
-  "keywords": ["drupal", "docker", "qa"],
+  "keywords": [
+    "drupal",
+    "docker",
+    "qa"
+  ],
   "author": "hussainweb",
   "license": "MIT",
   "bugs": {
@@ -12,6 +16,7 @@
   "homepage": "https://github.com/hussainweb/drupalqa-action#readme",
   "dependencies": {
     "@actions/core": "^1.6.0",
-    "@actions/exec": "^1.1.0"
+    "@actions/exec": "^1.1.0",
+    "yaml": "^1.10.2"
   }
 }

@@ -2,17 +2,21 @@ name: 'DrupalQA'
 description: 'Runs QA tools for a Drupal website'
 inputs:
   php-version:  # id of input
-    description: 'PHP version'
+    description: 'PHP version.'
     required: false
     default: '7.4'
   fast-fail:
-    description: 'Stop if one of the commands failed'
+    description: 'Stop if one of the commands failed.'
     required: false
     default: 'true'
   web-root:
-    description: 'Web root (document root)'
+    description: 'Web root (document root). This is set to web by default. Do not include trailing slash.'
     required: false
     default: 'web'
+  checks:
+    description: 'Checks to run. This is a YAML formatted structure and must begin with a pipe character.'
+    required: false
+    default: ''
 outputs:
   passed:
     description: 'True if all the checks were successful'
