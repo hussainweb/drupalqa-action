@@ -21,13 +21,14 @@ async function main() {
     '-e', 'GITHUB_ACTION',
     '-v', '/var/run/docker.sock:/var/run/docker.sock',
     '-v', env.GITHUB_WORKSPACE + ':' + env.GITHUB_WORKSPACE,
+    '--tty',
   ];
 
   const phpCsCommand = ['phpcs', '--standard=phpcs.xml.dist', '--extensions=php,module,inc,install,test,profile,theme', '--ignore=/node_modules/', webRoot + '/modules/custom'];
 
   await exec(
     'docker',
-    [ 'run', ...commonDockerOptions, dockerImage, phpCsCommand ],
+    [ 'run', ...commonDockerOptions, dockerImage, ...phpCsCommand ],
   );
 }
 
