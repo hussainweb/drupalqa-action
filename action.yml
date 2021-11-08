@@ -3,11 +3,19 @@ description: 'Runs QA tools for a Drupal website'
 inputs:
   php-version:  # id of input
     description: 'PHP version'
-    required: true
+    required: false
     default: '7.4'
+  fast-fail:
+    description: 'Stop if one of the commands failed'
+    required: false
+    default: 'true'
+  web-root:
+    description: 'Web root (document root)'
+    required: false
+    default: 'web'
 outputs:
-  status:
-    description: 'Overall status of the run'
+  passed:
+    description: 'True if all the checks were successful'
 runs:
   using: 'node12'
   main: 'index.js'
