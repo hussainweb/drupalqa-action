@@ -45,15 +45,13 @@ async function main() {
     }
   });
 
-  const commonDockerOptions = [
-    '--workdir', env.GITHUB_WORKSPACE,
-    '--rm',
-    '-e', 'CI',
-    '-e', 'GITHUB_ACTION',
-    '-v', '/var/run/docker.sock:/var/run/docker.sock',
-    '-v', env.GITHUB_WORKSPACE + ':' + env.GITHUB_WORKSPACE,
-    '--tty',
-  ];
+  const commonDockerOptions = [];
+  commonDockerOptions.push('--workdir', env.GITHUB_WORKSPACE);
+  commonDockerOptions.push('--rm');
+  commonDockerOptions.push('--init');
+  commonDockerOptions.push('--tty');
+  commonDockerOptions.push('-v', '/var/run/docker.sock:/var/run/docker.sock');
+  commonDockerOptions.push('-v', env.GITHUB_WORKSPACE + ':' + env.GITHUB_WORKSPACE);
 
   for (const command of checksCommands) {
     await exec(
