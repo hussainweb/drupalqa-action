@@ -4,7 +4,7 @@ module.exports = (options, webRoot) => {
     return commandArray;
   }
 
-  commandArray.push(`--exclude=${options.exclude ? options.exclude : 'vendor'}`);
+  commandArray.push(`--exclude=${options.exclude ? options.exclude : 'vendor,web/core,web/module/contrib'}`);
   commandArray.push(`--extensions=${options.extensions ? options.extensions : 'php,module,theme,engine,inc'}`);
   if (options.verbose) {
     commandArray.push('-v');
