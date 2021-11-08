@@ -3,36 +3,9 @@ const { exec } = require('@actions/exec');
 const YAML = require('yaml');
 
 const availableChecks = {
-  phplint: ((options, webRoot) => {
-    const commandArray = ['phplint'];
-    if (options.no_default_options) {
-      return commandArray;
-    }
-
-    commandArray.push(`--exclude=${options.exclude ? options.exclude : '/vendor'}`);
-    commandArray.push(`--extensions=${options.extensions ? options.extensions : 'php,module,theme,engine,inc'}`);
-    if (options.verbose !== undefined && options.verbose) {
-      commandArray.push('-v');
-    }
-    if (options.path !== undefined) {
-      commandArray.path(options.path);
-    }
-    return commandArray;
-  }),
-  phpcs: ((options, webRoot) => {
-    const commandArray = ['phpcs'];
-    commandArray.push(`--standard=${options.standard !== undefined ? options.standard : 'Drupal,DrupalPractice'}`);
-    commandArray.push(`--extensions=${options.extensions !== undefined ? options.extensions : 'php,module,inc,install,test,profile,theme'}`);
-    if (options.ignore !== undefined) {
-      commandArray.push(`--ignore=${options.ignore}`);
-    }
-    commandArray.push(options.path !== undefined ? options.path : webRoot + '/modules/custom');
-    return commandArray;
-  }),
-  phpmd: ((options, webRoot) => {
-    const commandArray = ['phpmd'];
-    return commandArray;
-  }),
+  phplint: require('./checks/phplint'),
+  phpcs: require('./checks/phpcs'),
+  phpmd: require('./checks/phpmd'),
 };
 
 async function main() {
