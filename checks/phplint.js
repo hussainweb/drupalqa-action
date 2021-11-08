@@ -9,12 +9,12 @@ module.exports = (options, webRoot) => {
     commandArray.push(`--exclude=${exclude}`);
   })
 
-  commandArray.push(`--extensions=${options.extensions ? options.extensions : 'php,module,theme,engine,inc'}`);
+  commandArray.push(`--extensions=${options.extensions ? options.extensions : 'php,module,theme,engine,inc,install'}`);
   if (options.verbose) {
     commandArray.push('-v');
   }
   if (options.path) {
-    commandArray.path(options.path);
+    commandArray.push(options.path);
   }
   return commandArray;
 };
