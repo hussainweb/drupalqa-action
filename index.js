@@ -51,17 +51,15 @@ async function main() {
   // Parse 'checks' into an array of commands.
   const inpChecks = core.getInput('checks');
   const checksCommands = [];
+  let checks = {
+    phplint: {},
+    phpcs: {},
+  };
   if (inpChecks) {
-    const checks = YAML.parse(inpChecks);
+    checks = YAML.parse(inpChecks);
     if (typeof checks !== 'object') {
       throw new Error('checks must be a mapping of commands and options.');
     }
-  }
-  else {
-    const checks = {
-      phplint: {},
-      phpcs: {},
-    };
   }
   Object.entries(checks).forEach(([key, value]) => {
     if (typeof value !== 'object') {
@@ -91,5 +89,5 @@ async function main() {
 }
 
 main().catch(err => {
-  core.setFailed(err.message);
+  core.setFailed('drupalqa: ' + err.message);
 });
