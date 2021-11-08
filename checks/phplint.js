@@ -4,7 +4,14 @@ module.exports = (options, webRoot) => {
     return commandArray;
   }
 
-  commandArray.push(`--exclude=${options.exclude ? options.exclude : 'vendor,web/core,web/module/contrib'}`);
+  const excludeStr = options.exclude;
+  if (!excludeStr) {
+    excludeStr = `vendor,${webRoot}/core,${webRoot}/module/contrib`;
+  }
+  excludeStr.split(',').forEach((exclude) => {
+    commandArray.push(`--exclude=${exclude}`);
+  })
+
   commandArray.push(`--extensions=${options.extensions ? options.extensions : 'php,module,theme,engine,inc'}`);
   if (options.verbose) {
     commandArray.push('-v');
