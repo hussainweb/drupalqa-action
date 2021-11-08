@@ -5,12 +5,12 @@ const YAML = require('yaml');
 const availableChecks = {
   phplint: ((options, webRoot) => {
     const commandArray = ['phplint'];
-    if (options.exclude !== undefined) {
-      commandArray.push(`--exclude=${options.exclude}`);
+    if (options.no_default_options) {
+      return commandArray;
     }
-    if (options.extensions !== undefined) {
-      commandArray.push(`--extensions=${options.extensions}`);
-    }
+
+    commandArray.push(`--exclude=${options.exclude ? options.exclude : '/vendor'}`);
+    commandArray.push(`--extensions=${options.extensions ? options.extensions : 'php,module,theme,engine,inc'}`);
     if (options.verbose !== undefined && options.verbose) {
       commandArray.push('-v');
     }
