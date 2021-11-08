@@ -43,7 +43,6 @@ async function main() {
   const versionString = phpVersion == 'latest' ? 'latest' : 'php' + phpVersion;
   const dockerImage = 'hussainweb/drupalqa:' + versionString;
 
-  const failFast = core.getInput('fail-fast');
   const webRoot = core.getInput('web-root');
 
   const env = { ...process.env };
