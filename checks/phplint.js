@@ -4,10 +4,7 @@ module.exports = (options, webRoot) => {
     return commandArray;
   }
 
-  const excludeStr = options.exclude;
-  if (!excludeStr) {
-    excludeStr = `vendor,${webRoot}/core,${webRoot}/module/contrib`;
-  }
+  const excludeStr = options.exclude ? options.exclude : `vendor,${webRoot}/core,${webRoot}/module/contrib`;
   excludeStr.split(',').forEach((exclude) => {
     commandArray.push(`--exclude=${exclude}`);
   })
