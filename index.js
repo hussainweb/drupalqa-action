@@ -80,12 +80,12 @@ async function main() {
     '--tty',
   ];
 
-  checksCommands.forEach(async (command) => {
+  for (const command of checksCommands) {
     await exec(
       'docker',
       [ 'run', ...commonDockerOptions, dockerImage, ...command ],
     );
-  });
+  }
 }
 
 main().catch(err => {
