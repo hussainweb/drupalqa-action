@@ -1,0 +1,13 @@
+name: 'DrupalQA'
+description: 'Runs QA tools for a Drupal website'
+inputs:
+  php-version:  # id of input
+    description: 'PHP version'
+    required: true
+    default: '7.4'
+outputs:
+  status:
+    description: 'Overall status of the run'
+runs:
+  using: 'node12'
+  main: 'index.js'
