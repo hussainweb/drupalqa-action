@@ -67,6 +67,9 @@ async function main() {
     if (key in availableChecks) {
       checksCommands.push(availableChecks[key](value, webRoot));
     }
+    else {
+      throw new Error(`invalid check ${key} specified.`);
+    }
   });
 
   const commonDockerOptions = [
