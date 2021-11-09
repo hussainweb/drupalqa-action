@@ -4,6 +4,7 @@
   "description": "Run DrupalQA scripts",
   "main": "src/index.js",
   "scripts": {
+    "lint": "eslint src/",
     "prepare": "ncc build src/index.js -o dist --source-map --license licenses.txt"
   },
   "keywords": [
@@ -23,6 +24,7 @@
     "yaml": "^1.10.2"
   },
   "devDependencies": {
-    "@vercel/ncc": "^0.31.1"
+    "@vercel/ncc": "^0.31.1",
+    "eslint": "^8.2.0"
   }
 }
