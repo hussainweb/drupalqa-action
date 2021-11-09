@@ -44,6 +44,11 @@ async function main() {
     }
   });
 
+  // Pull the image first (and collapse the output)
+  core.startGroup('Pull Docker image');
+  await exec("docker", ["pull", dockerImage]);
+  core.endGroup();
+
   const commonDockerOptions = [];
   commonDockerOptions.push("--workdir", env.GITHUB_WORKSPACE);
   commonDockerOptions.push("--rm");
