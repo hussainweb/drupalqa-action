@@ -18,4 +18,4 @@ outputs:
     description: 'True if all the checks were successful'
 runs:
   using: 'node12'
-  main: 'index.js'
+  main: 'dist/index.js'
