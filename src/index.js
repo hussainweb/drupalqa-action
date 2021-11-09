@@ -45,7 +45,7 @@ async function main() {
   });
 
   // Pull the image first (and collapse the output)
-  core.startGroup('Pull Docker image');
+  core.startGroup("Pull Docker image");
   await exec("docker", ["pull", dockerImage]);
   core.endGroup();
 
@@ -61,12 +61,14 @@ async function main() {
   );
 
   for (const command of checksCommands) {
+    core.startGroup(`Running ${command.join(" ")}`);
     await exec("docker", [
       "run",
       ...commonDockerOptions,
       dockerImage,
       ...command,
     ]);
+    core.endGroup();
   }
 }
 
