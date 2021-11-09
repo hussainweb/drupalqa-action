@@ -5,7 +5,8 @@
   "main": "src/index.js",
   "scripts": {
     "lint": "eslint src/",
-    "prepare": "ncc build src/index.js -o dist --source-map --license licenses.txt"
+    "prepare": "ncc build src/index.js -o dist --source-map --license licenses.txt",
+    "test": "jest"
   },
   "keywords": [
     "drupal",
@@ -25,6 +26,7 @@
   },
   "devDependencies": {
     "@vercel/ncc": "^0.31.1",
-    "eslint": "^8.2.0"
+    "eslint": "^8.2.0",
+    "jest": "^27.3.1"
   }
 }
