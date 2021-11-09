@@ -13,9 +13,7 @@ inputs:
     description: 'Checks to run. This is a YAML formatted structure and must begin with a pipe character.'
     required: false
     default: ''
-outputs:
-  passed:
-    description: 'True if all the checks were successful'
+outputs: {}
 runs:
   using: 'node12'
   main: 'dist/index.js'
