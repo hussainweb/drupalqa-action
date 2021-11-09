@@ -29,7 +29,7 @@ An YAML string describing the checks to run. The default structure is as below.
       phpcs: {}
 ```
 
-The options for each of these are described in the [checks](#checks) section.
+The options for each of these are described in the [DrupalQA checks](#drupalqa-checks) section.
 
 ## Outputs
 
@@ -49,7 +49,7 @@ with:
       ruleset: phpmd.xml
 ```
 
-## Checks
+## DrupalQA Checks
 
 DrupalQA action supports configuring checks for the following tools.
 
