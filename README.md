@@ -38,7 +38,7 @@ No outputs.
 ## Example usage
 
 ```yaml
-uses: hussainweb/drupalqa@main
+uses: hussainweb/drupalqa@v1
 with:
   php-version: 7.4
   checks: |
