@@ -9495,7 +9495,7 @@ module.exports = (options, webRoot) => {
 
   const excludeStr = options.exclude
     ? options.exclude
-    : `vendor,${webRoot}/core,${webRoot}/module/contrib`;
+    : `vendor,${webRoot}/core,${webRoot}/modules/contrib`;
   excludeStr.split(",").forEach((exclude) => {
     commandArray.push(`--exclude=${exclude}`);
   });
