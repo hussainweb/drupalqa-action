@@ -30,7 +30,7 @@ jobs:
         commit_message: Add prepared script
         commit_options: '--no-verify --signoff'
         file_pattern: dist/*
-        commit_user_name: automated-commit
-        commit_user_email: hussainweb@gmail.com
-        commit_author: hw <hussainweb@gmail.com>
+        commit_user_name: github-actions
+        commit_user_email: github-actions[bot]@users.noreply.github.com
+        commit_author: hw <github-actions[bot]@users.noreply.github.com>
         push_options: ''
