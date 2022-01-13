@@ -3,10 +3,11 @@
   "version": "0.1.0",
   "description": "Run DrupalQA scripts",
   "main": "src/index.js",
+  "type": "module",
   "scripts": {
     "lint": "eslint src/",
     "prepare": "ncc build src/index.js -o dist --source-map --license licenses.txt",
-    "test": "jest"
+    "test": "NODE_OPTIONS=--experimental-vm-modules jest"
   },
   "keywords": [
     "drupal",

@@ -1,11 +1,15 @@
-const core = require("@actions/core");
-const { exec } = require("@actions/exec");
-const YAML = require("yaml");
+import * as core from "@actions/core";
+import { exec } from "@actions/exec";
+import * as YAML from "yaml";
+
+import phplint from "./checks/phplint";
+import phpcs from "./checks/phpcd";
+import phpmd from "./checks/phpmd";
 
 const availableChecks = {
-  phplint: require("./checks/phplint"),
-  phpcs: require("./checks/phpcs"),
-  phpmd: require("./checks/phpmd"),
+  phplint: phplint,
+  phpcs: phpcs,
+  phpmd: phpmd,
 };
 
 async function main() {
