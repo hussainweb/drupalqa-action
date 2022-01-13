@@ -1,5 +1,5 @@
-require('./sourcemap-register.js');/******/ (() => { // webpackBootstrap
-/******/ 	var __webpack_modules__ = ({
+import './sourcemap-register.cjs';import { createRequire as __WEBPACK_EXTERNAL_createRequire } from "module";
+/******/ var __webpack_modules__ = ({
 
 /***/ 241:
 /***/ (function(__unused_webpack_module, exports, __nccwpck_require__) {
@@ -9453,93 +9453,26 @@ module.exports = __nccwpck_require__(65).YAML
 
 /***/ }),
 
-/***/ 402:
+/***/ 904:
 /***/ ((module) => {
 
-module.exports = (options, webRoot) => {
-  const commandArray = ["phpcs"];
-  commandArray.push(
-    `--standard=${
-      options.standard !== undefined
-        ? options.standard
-        : "Drupal,DrupalPractice"
-    }`
-  );
-  commandArray.push(
-    `--extensions=${
-      options.extensions !== undefined
-        ? options.extensions
-        : "php,module,inc,install,test,profile,theme"
-    }`
-  );
-  if (options.ignore !== undefined) {
-    commandArray.push(`--ignore=${options.ignore}`);
-  }
-
-  const pathStr = options.path ? options.path : webRoot + "/modules/custom";
-  pathStr.split(",").forEach((path) => {
-    commandArray.push(path);
-  });
-  return commandArray;
-};
+module.exports = eval("require")("./checks/phpcd");
 
 
 /***/ }),
 
-/***/ 8:
+/***/ 433:
 /***/ ((module) => {
 
-module.exports = (options, webRoot) => {
-  const commandArray = ["phplint"];
-  if (options.no_default_options) {
-    return commandArray;
-  }
-
-  const excludeStr = options.exclude
-    ? options.exclude
-    : `vendor,${webRoot}/core,${webRoot}/modules/contrib`;
-  excludeStr.split(",").forEach((exclude) => {
-    commandArray.push(`--exclude=${exclude}`);
-  });
-
-  commandArray.push(
-    `--extensions=${
-      options.extensions
-        ? options.extensions
-        : "php,module,theme,engine,inc,install"
-    }`
-  );
-  if (options.verbose) {
-    commandArray.push("-v");
-  }
-  if (options.path) {
-    commandArray.push(options.path);
-  }
-  return commandArray;
-};
+module.exports = eval("require")("./checks/phplint");
 
 
 /***/ }),
 
-/***/ 730:
+/***/ 449:
 /***/ ((module) => {
 
-module.exports = (options, webRoot) => {
-  const commandArray = ["phpmd"];
-  commandArray.push(options.path ? options.path : webRoot + "/modules/custom");
-  commandArray.push(options.format ? options.format : "text");
-  commandArray.push(
-    options.ruleset ? options.ruleset : "codesize,naming,unusedcode"
-  );
-  commandArray.push(
-    "--suffixes",
-    options.suffixes ? options.suffixes : "php,module,theme,engine,inc"
-  );
-  if (options.exclude) {
-    commandArray.push("--exclude", options.exclude);
-  }
-  return commandArray;
-};
+module.exports = eval("require")("./checks/phpmd");
 
 
 /***/ }),
@@ -9548,7 +9481,7 @@ module.exports = (options, webRoot) => {
 /***/ ((module) => {
 
 "use strict";
-module.exports = require("assert");
+module.exports = __WEBPACK_EXTERNAL_createRequire(import.meta.url)("assert");
 
 /***/ }),
 
@@ -9556,7 +9489,7 @@ module.exports = require("assert");
 /***/ ((module) => {
 
 "use strict";
-module.exports = require("child_process");
+module.exports = __WEBPACK_EXTERNAL_createRequire(import.meta.url)("child_process");
 
 /***/ }),
 
@@ -9564,7 +9497,7 @@ module.exports = require("child_process");
 /***/ ((module) => {
 
 "use strict";
-module.exports = require("events");
+module.exports = __WEBPACK_EXTERNAL_createRequire(import.meta.url)("events");
 
 /***/ }),
 
@@ -9572,7 +9505,7 @@ module.exports = require("events");
 /***/ ((module) => {
 
 "use strict";
-module.exports = require("fs");
+module.exports = __WEBPACK_EXTERNAL_createRequire(import.meta.url)("fs");
 
 /***/ }),
 
@@ -9580,7 +9513,7 @@ module.exports = require("fs");
 /***/ ((module) => {
 
 "use strict";
-module.exports = require("http");
+module.exports = __WEBPACK_EXTERNAL_createRequire(import.meta.url)("http");
 
 /***/ }),
 
@@ -9588,7 +9521,7 @@ module.exports = require("http");
 /***/ ((module) => {
 
 "use strict";
-module.exports = require("https");
+module.exports = __WEBPACK_EXTERNAL_createRequire(import.meta.url)("https");
 
 /***/ }),
 
@@ -9596,7 +9529,7 @@ module.exports = require("https");
 /***/ ((module) => {
 
 "use strict";
-module.exports = require("net");
+module.exports = __WEBPACK_EXTERNAL_createRequire(import.meta.url)("net");
 
 /***/ }),
 
@@ -9604,7 +9537,7 @@ module.exports = require("net");
 /***/ ((module) => {
 
 "use strict";
-module.exports = require("os");
+module.exports = __WEBPACK_EXTERNAL_createRequire(import.meta.url)("os");
 
 /***/ }),
 
@@ -9612,7 +9545,7 @@ module.exports = require("os");
 /***/ ((module) => {
 
 "use strict";
-module.exports = require("path");
+module.exports = __WEBPACK_EXTERNAL_createRequire(import.meta.url)("path");
 
 /***/ }),
 
@@ -9620,7 +9553,7 @@ module.exports = require("path");
 /***/ ((module) => {
 
 "use strict";
-module.exports = require("string_decoder");
+module.exports = __WEBPACK_EXTERNAL_createRequire(import.meta.url)("string_decoder");
 
 /***/ }),
 
@@ -9628,7 +9561,7 @@ module.exports = require("string_decoder");
 /***/ ((module) => {
 
 "use strict";
-module.exports = require("timers");
+module.exports = __WEBPACK_EXTERNAL_createRequire(import.meta.url)("timers");
 
 /***/ }),
 
@@ -9636,7 +9569,7 @@ module.exports = require("timers");
 /***/ ((module) => {
 
 "use strict";
-module.exports = require("tls");
+module.exports = __WEBPACK_EXTERNAL_createRequire(import.meta.url)("tls");
 
 /***/ }),
 
@@ -9644,82 +9577,93 @@ module.exports = require("tls");
 /***/ ((module) => {
 
 "use strict";
-module.exports = require("util");
+module.exports = __WEBPACK_EXTERNAL_createRequire(import.meta.url)("util");
 
 /***/ })
 
-/******/ 	});
+/******/ });
 /************************************************************************/
-/******/ 	// The module cache
-/******/ 	var __webpack_module_cache__ = {};
-/******/ 	
-/******/ 	// The require function
-/******/ 	function __nccwpck_require__(moduleId) {
-/******/ 		// Check if module is in cache
-/******/ 		var cachedModule = __webpack_module_cache__[moduleId];
-/******/ 		if (cachedModule !== undefined) {
-/******/ 			return cachedModule.exports;
-/******/ 		}
-/******/ 		// Create a new module (and put it into the cache)
-/******/ 		var module = __webpack_module_cache__[moduleId] = {
-/******/ 			// no module.id needed
-/******/ 			// no module.loaded needed
-/******/ 			exports: {}
-/******/ 		};
-/******/ 	
-/******/ 		// Execute the module function
-/******/ 		var threw = true;
-/******/ 		try {
-/******/ 			__webpack_modules__[moduleId].call(module.exports, module, module.exports, __nccwpck_require__);
-/******/ 			threw = false;
-/******/ 		} finally {
-/******/ 			if(threw) delete __webpack_module_cache__[moduleId];
-/******/ 		}
-/******/ 	
-/******/ 		// Return the exports of the module
-/******/ 		return module.exports;
+/******/ // The module cache
+/******/ var __webpack_module_cache__ = {};
+/******/ 
+/******/ // The require function
+/******/ function __nccwpck_require__(moduleId) {
+/******/ 	// Check if module is in cache
+/******/ 	var cachedModule = __webpack_module_cache__[moduleId];
+/******/ 	if (cachedModule !== undefined) {
+/******/ 		return cachedModule.exports;
 /******/ 	}
-/******/ 	
+/******/ 	// Create a new module (and put it into the cache)
+/******/ 	var module = __webpack_module_cache__[moduleId] = {
+/******/ 		// no module.id needed
+/******/ 		// no module.loaded needed
+/******/ 		exports: {}
+/******/ 	};
+/******/ 
+/******/ 	// Execute the module function
+/******/ 	var threw = true;
+/******/ 	try {
+/******/ 		__webpack_modules__[moduleId].call(module.exports, module, module.exports, __nccwpck_require__);
+/******/ 		threw = false;
+/******/ 	} finally {
+/******/ 		if(threw) delete __webpack_module_cache__[moduleId];
+/******/ 	}
+/******/ 
+/******/ 	// Return the exports of the module
+/******/ 	return module.exports;
+/******/ }
+/******/ 
 /************************************************************************/
-/******/ 	/* webpack/runtime/compat */
-/******/ 	
-/******/ 	if (typeof __nccwpck_require__ !== 'undefined') __nccwpck_require__.ab = __dirname + "/";
-/******/ 	
+/******/ /* webpack/runtime/compat */
+/******/ 
+/******/ if (typeof __nccwpck_require__ !== 'undefined') __nccwpck_require__.ab = new URL('.', import.meta.url).pathname.slice(import.meta.url.match(/^file:\/\/\/\w:/) ? 1 : 0, -1) + "/";
+/******/ 
 /************************************************************************/
 var __webpack_exports__ = {};
-// This entry need to be wrapped in an IIFE because it need to be isolated against other modules in the chunk.
+// This entry need to be wrapped in an IIFE because it need to be in strict mode.
 (() => {
-const core = __nccwpck_require__(186);
-const { exec } = __nccwpck_require__(514);
-const YAML = __nccwpck_require__(552);
+"use strict";
+/* harmony import */ var _actions_core__WEBPACK_IMPORTED_MODULE_0__ = __nccwpck_require__(186);
+/* harmony import */ var _actions_exec__WEBPACK_IMPORTED_MODULE_1__ = __nccwpck_require__(514);
+/* harmony import */ var yaml__WEBPACK_IMPORTED_MODULE_2__ = __nccwpck_require__(552);
+/* harmony import */ var _checks_phplint__WEBPACK_IMPORTED_MODULE_3__ = __nccwpck_require__(433);
+/* harmony import */ var _checks_phpcd__WEBPACK_IMPORTED_MODULE_4__ = __nccwpck_require__(904);
+/* harmony import */ var _checks_phpmd__WEBPACK_IMPORTED_MODULE_5__ = __nccwpck_require__(449);
+
+
+
+
+
+
+
 
 const availableChecks = {
-  phplint: __nccwpck_require__(8),
-  phpcs: __nccwpck_require__(402),
-  phpmd: __nccwpck_require__(730),
+  phplint: _checks_phplint__WEBPACK_IMPORTED_MODULE_3__,
+  phpcs: _checks_phpcd__WEBPACK_IMPORTED_MODULE_4__,
+  phpmd: _checks_phpmd__WEBPACK_IMPORTED_MODULE_5__,
 };
 
 async function main() {
-  const phpVersion = core.getInput("php-version");
+  const phpVersion = _actions_core__WEBPACK_IMPORTED_MODULE_0__.getInput("php-version");
   if (!["7.3", "7.4", "8.0", "latest"].includes(phpVersion)) {
     throw new Error("Invalid PHP version.");
   }
   const versionString = phpVersion == "latest" ? "latest" : "php" + phpVersion;
   const dockerImage = "hussainweb/drupalqa:" + versionString;
 
-  const webRoot = core.getInput("web-root");
+  const webRoot = _actions_core__WEBPACK_IMPORTED_MODULE_0__.getInput("web-root");
 
   const env = { ...process.env };
 
   // Parse 'checks' into an array of commands.
-  const inpChecks = core.getInput("checks");
+  const inpChecks = _actions_core__WEBPACK_IMPORTED_MODULE_0__.getInput("checks");
   const checksCommands = [];
   let checks = {
     phplint: {},
     phpcs: {},
   };
   if (inpChecks) {
-    checks = YAML.parse(inpChecks);
+    checks = yaml__WEBPACK_IMPORTED_MODULE_2__.parse(inpChecks);
     if (typeof checks !== "object") {
       throw new Error("checks must be a mapping of commands and options.");
     }
@@ -9736,9 +9680,9 @@ async function main() {
   });
 
   // Pull the image first (and collapse the output)
-  core.startGroup("Pull Docker image");
-  await exec("docker", ["pull", dockerImage]);
-  core.endGroup();
+  _actions_core__WEBPACK_IMPORTED_MODULE_0__.startGroup("Pull Docker image");
+  await (0,_actions_exec__WEBPACK_IMPORTED_MODULE_1__.exec)("docker", ["pull", dockerImage]);
+  _actions_core__WEBPACK_IMPORTED_MODULE_0__.endGroup();
 
   const commonDockerOptions = [];
   commonDockerOptions.push("--workdir", env.GITHUB_WORKSPACE);
@@ -9752,24 +9696,22 @@ async function main() {
   );
 
   for (const command of checksCommands) {
-    core.startGroup(`Running ${command.join(" ")}`);
-    await exec("docker", [
+    _actions_core__WEBPACK_IMPORTED_MODULE_0__.startGroup(`Running ${command.join(" ")}`);
+    await (0,_actions_exec__WEBPACK_IMPORTED_MODULE_1__.exec)("docker", [
       "run",
       ...commonDockerOptions,
       dockerImage,
       ...command,
     ]);
-    core.endGroup();
+    _actions_core__WEBPACK_IMPORTED_MODULE_0__.endGroup();
   }
 }
 
 main().catch((err) => {
-  core.setFailed("drupalqa: " + err.message);
+  _actions_core__WEBPACK_IMPORTED_MODULE_0__.setFailed("drupalqa: " + err.message);
 });
 
 })();
 
-module.exports = __webpack_exports__;
-/******/ })()
-;
+
 //# sourceMappingURL=index.js.map
