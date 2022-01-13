@@ -9475,9 +9475,11 @@ module.exports = (options, webRoot) => {
   if (options.ignore !== undefined) {
     commandArray.push(`--ignore=${options.ignore}`);
   }
-  commandArray.push(
-    options.path !== undefined ? options.path : webRoot + "/modules/custom"
-  );
+
+  const pathStr = options.path ? options.path : webRoot + "/modules/custom";
+  pathStr.split(",").forEach((path) => {
+    commandArray.push(path);
+  });
   return commandArray;
 };
 
