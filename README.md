@@ -93,6 +93,15 @@ These are the default options for `phpcs`. All are optional and you can override
 
 In the above sample, the path begins with `web` as it is the default for `web-root` input. The actual default will depend on the `web-root` input.
 
+You can specify multiple paths by separating them with a comma.
+
+```yaml
+    checks: |
+      phpcs:
+        standard: Drupal,DrupalPractice
+        path: web/modules/custom,web/themes/custom
+```
+
 ### phpmd
 
 These are the default options for `phpmd`. All are optional and you can override these as per the [command line options of phpmd](https://phpmd.org/documentation/).

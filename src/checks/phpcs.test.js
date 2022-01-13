@@ -19,3 +19,17 @@ test('it handles partial inputs', () => {
   expect(command).toContain('--extensions=php,inc');
   expect(command).toContain('docroot/modules/custom');
 });
+
+test('it can handle single and multiple paths', () => {
+  let command;
+  command = phpcs({
+    path: 'web/modules/custom',
+  }, 'web');
+  expect(command).toContain('web/modules/custom');
+
+  command = phpcs({
+    path: 'web/modules/custom,web/themes/custom',
+  }, 'web');
+  expect(command).toContain('web/modules/custom');
+  expect(command).toContain('web/themes/custom');
+});
