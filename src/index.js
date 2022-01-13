@@ -1,5 +1,5 @@
 import * as core from "@actions/core";
-import * as exec from "@actions/exec";
+import { exec } from "@actions/exec";
 import * as YAML from "yaml";
 
 import phplint from "./checks/phplint";
@@ -50,7 +50,7 @@ async function main() {
 
   // Pull the image first (and collapse the output)
   core.startGroup("Pull Docker image");
-  await exec.exec("docker", ["pull", dockerImage]);
+  await exec("docker", ["pull", dockerImage]);
   core.endGroup();
 
   const commonDockerOptions = [];
@@ -66,7 +66,7 @@ async function main() {
 
   for (const command of checksCommands) {
     core.startGroup(`Running ${command.join(" ")}`);
-    await exec.exec("docker", [
+    await exec("docker", [
       "run",
       ...commonDockerOptions,
       dockerImage,
