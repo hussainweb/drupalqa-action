@@ -1,4 +1,4 @@
-export default function (options, webRoot) {
+module.exports = (options, webRoot) => {
   const commandArray = ["phpmd"];
   commandArray.push(options.path ? options.path : webRoot + "/modules/custom");
   commandArray.push(options.format ? options.format : "text");
@@ -13,4 +13,4 @@ export default function (options, webRoot) {
     commandArray.push("--exclude", options.exclude);
   }
   return commandArray;
-}
+};

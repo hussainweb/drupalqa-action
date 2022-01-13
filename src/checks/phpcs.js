@@ -1,4 +1,4 @@
-export default function (options, webRoot) {
+module.exports = (options, webRoot) => {
   const commandArray = ["phpcs"];
   commandArray.push(
     `--standard=${
@@ -23,4 +23,4 @@ export default function (options, webRoot) {
     commandArray.push(path);
   });
   return commandArray;
-}
+};

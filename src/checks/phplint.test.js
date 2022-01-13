@@ -1,4 +1,4 @@
-import phplint from "./phplint";
+const phplint = require('./phplint');
 
 test('it returns defaults', () => {
   expect(phplint({}, 'web')).toEqual(['phplint', '--exclude=vendor', '--exclude=web/core', '--exclude=web/modules/contrib', '--extensions=php,module,theme,engine,inc,install']);

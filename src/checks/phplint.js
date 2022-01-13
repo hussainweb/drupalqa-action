@@ -1,4 +1,4 @@
-export default function (options, webRoot) {
+module.exports = (options, webRoot) => {
   const commandArray = ["phplint"];
   if (options.no_default_options) {
     return commandArray;
@@ -25,4 +25,4 @@ export default function (options, webRoot) {
     commandArray.push(options.path);
   }
   return commandArray;
-}
+};

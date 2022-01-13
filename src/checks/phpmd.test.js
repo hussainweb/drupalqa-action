@@ -1,4 +1,4 @@
-import phpmd from "./phpmd";
+const phpmd = require('./phpmd');
 
 test('it returns defaults', () => {
   expect(phpmd({}, 'web')).toEqual(['phpmd', 'web/modules/custom', 'text', 'codesize,naming,unusedcode', '--suffixes', 'php,module,theme,engine,inc']);
