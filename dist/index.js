@@ -9681,7 +9681,7 @@ async function main() {
 
   // Pull the image first (and collapse the output)
   _actions_core__WEBPACK_IMPORTED_MODULE_0__.startGroup("Pull Docker image");
-  await (0,_actions_exec__WEBPACK_IMPORTED_MODULE_1__.exec)("docker", ["pull", dockerImage]);
+  await _actions_exec__WEBPACK_IMPORTED_MODULE_1__.exec("docker", ["pull", dockerImage]);
   _actions_core__WEBPACK_IMPORTED_MODULE_0__.endGroup();
 
   const commonDockerOptions = [];
@@ -9697,7 +9697,7 @@ async function main() {
 
   for (const command of checksCommands) {
     _actions_core__WEBPACK_IMPORTED_MODULE_0__.startGroup(`Running ${command.join(" ")}`);
-    await (0,_actions_exec__WEBPACK_IMPORTED_MODULE_1__.exec)("docker", [
+    await _actions_exec__WEBPACK_IMPORTED_MODULE_1__.exec("docker", [
       "run",
       ...commonDockerOptions,
       dockerImage,
