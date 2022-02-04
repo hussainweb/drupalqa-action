@@ -13,6 +13,10 @@ inputs:
     description: 'Checks to run. This is a YAML formatted structure and must begin with a pipe character.'
     required: false
     default: ''
+  registry:
+    description: 'Select which registry to use. Only DockerHub or GHCR is supported.'
+    required: false
+    default: 'ghcr'
 outputs: {}
 runs:
   using: 'node16'
