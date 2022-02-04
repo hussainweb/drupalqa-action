@@ -31,6 +31,10 @@ An YAML string describing the checks to run. The default structure is as below.
 
 The options for each of these are described in the [DrupalQA checks](#drupalqa-checks) section.
 
+### `registry`
+
+The registry to use to download the image. Only 'ghcr' and 'dockerhub' are supported. You probably don't need to change this option. It's only there to compare the performance and switch to DockerHub in case there is a problem with ghcr.io (which is unlikely). Default: `ghcr`.
+
 ## Outputs
 
 No outputs.
