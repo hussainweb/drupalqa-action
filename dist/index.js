@@ -9704,8 +9704,17 @@ async function main() {
   if (!["7.3", "7.4", "8.0", "latest"].includes(phpVersion)) {
     throw new Error("Invalid PHP version.");
   }
+
+  const registry = core.getInput("registry");
+  if (!["ghcr", "dockerhub"].includes(registry)) {
+    throw new Error("Invalid registry. Can only be 'ghcr' or 'dockerhub'.");
+  }
+
   const versionString = phpVersion == "latest" ? "latest" : "php" + phpVersion;
-  const dockerImage = "hussainweb/drupalqa:" + versionString;
+  const dockerImage =
+    (registry == "ghcr" ? "ghcr.io/" : "") +
+    "hussainweb/drupalqa:" +
+    versionString;
 
   const webRoot = core.getInput("web-root");
 
