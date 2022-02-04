@@ -6,7 +6,7 @@ This action runs checks from [DrupalQA](https://github.com/hussainweb/drupalqa) 
 
 ### `php-version`
 
-The PHP version to use (corresponds to the Docker image). Allowed options are and their corresponding Docker images are as follows. Default: `7.3`.
+The PHP version to use (corresponds to the Docker image). Allowed options are and their corresponding Docker images are as follows. Default: `7.4`.
 
 | php-version | Docker image |
 | ----------- | ------------ |
