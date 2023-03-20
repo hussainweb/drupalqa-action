@@ -6,17 +6,18 @@ This action runs checks from [DrupalQA](https://github.com/hussainweb/drupalqa) 
 
 ### `php-version`
 
-The PHP version to use (corresponds to the Docker image). Allowed options are and their corresponding Docker images are as follows. Default: `7.4`.
+The PHP version to use (corresponds to the Docker image). Allowed options are and their corresponding Docker images are as follows. Default: `8.1`.
 
 | php-version | Docker image |
 | ----------- | ------------ |
 | 7.3         | hussainweb/drupalqa:php7.3 (_not supported_) |
-| 7.4         | hussainweb/drupalqa:php7.4 |
+| 7.4         | hussainweb/drupalqa:php7.4 (_not supported_) |
 | 8.0         | hussainweb/drupalqa:php8.0 |
 | 8.1         | hussainweb/drupalqa:php8.1 |
+| 8.2         | hussainweb/drupalqa:php8.1 |
 | latest      | hussainweb/drupalqa:latest |
 
-Note: The actual Docker image used also depends on the `registry` option. If that option is set to `'ghcr'` (default value), then the Docker image is prefixed with `ghcr.io/`. For example, `ghcr.io/hussainweb/drupalqa:php8.0`.
+Note: The actual Docker image used also depends on the `registry` option. If that option is set to `'ghcr'` (default value), then the Docker image is prefixed with `ghcr.io/`. For example, `ghcr.io/hussainweb/drupalqa:php8.2`.
 
 ### `web-root`
 
@@ -47,7 +48,7 @@ No outputs.
 ```yaml
 uses: hussainweb/drupalqa@v1
 with:
-  php-version: 7.4
+  php-version: 8.2
   checks: |
     phplint: {}
     phpcs:

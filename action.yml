@@ -4,7 +4,7 @@ inputs:
   php-version:  # id of input
     description: 'PHP version.'
     required: false
-    default: '7.4'
+    default: '8.1'
   web-root:
     description: 'Web root (document root). This is set to web by default. Do not include trailing slash.'
     required: false
