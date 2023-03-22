@@ -7,9 +7,9 @@ import phpcs from './checks/phpcs'
 import phpmd from './checks/phpmd'
 
 const availableChecks: {[key: string]: any} = {
-  phplint: phplint,
-  phpcs: phpcs,
-  phpmd: phpmd
+  phplint,
+  phpcs,
+  phpmd
 }
 
 async function run(): Promise<void> {
@@ -23,11 +23,9 @@ async function run(): Promise<void> {
     throw new Error("Invalid registry. Can only be 'ghcr' or 'dockerhub'.")
   }
 
-  const versionString = phpVersion == 'latest' ? 'latest' : 'php' + phpVersion
-  const dockerImage =
-    (registry == 'ghcr' ? 'ghcr.io/' : '') +
-    'hussainweb/drupalqa:' +
-    versionString
+  const versionString = phpVersion === 'latest' ? 'latest' : `php${phpVersion}`
+  const registryPrefix = registry === 'ghcr' ? 'ghcr.io/' : ''
+  const dockerImage = `${registryPrefix}hussainweb/drupalqa:${versionString}`
 
   const webRoot = core.getInput('web-root')
 
@@ -47,7 +45,8 @@ async function run(): Promise<void> {
       throw new Error('checks must be a mapping of commands and options.')
     }
   }
-  Object.entries(checks).forEach(([key, value]) => {
+
+  for (const [key, value] of Object.entries(checks)) {
     if (typeof value !== 'object') {
       throw new Error(`invalid value '${value}' for option ${key}`)
     }
@@ -56,7 +55,7 @@ async function run(): Promise<void> {
     } else {
       throw new Error(`invalid check ${key} specified.`)
     }
-  })
+  }
 
   // Pull the image first (and collapse the output)
   core.startGroup('Pull Docker image')
@@ -69,7 +68,7 @@ async function run(): Promise<void> {
   commonDockerOptions.push('--init')
   commonDockerOptions.push('--tty')
   commonDockerOptions.push('-v', '/var/run/docker.sock:/var/run/docker.sock')
-  commonDockerOptions.push('-v', githubWorkspace + ':' + githubWorkspace)
+  commonDockerOptions.push('-v', `${githubWorkspace}:${githubWorkspace}`)
 
   for (const command of checksCommands) {
     core.startGroup(`Running ${command.join(' ')}`)
@@ -83,8 +82,10 @@ async function run(): Promise<void> {
   }
 }
 
-run().catch(err => {
+try {
+  run()
+} catch (err) {
   if (err instanceof Error) {
-    core.setFailed('drupalqa: ' + err.message)
+    core.setFailed(`drupalqa: ${err.message}`)
   }
-})
+}
