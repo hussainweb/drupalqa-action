@@ -1,1 +1,12 @@
 /node_modules/
+
+# TypeScript cache
+*.tsbuildinfo
+
+# OS metadata
+.DS_Store
+Thumbs.db
+
+# Ignore built ts files
+__tests__/runner/*
+lib/**/*
