@@ -18,10 +18,10 @@ function phpcs(options, webRoot) {
     if (options.ignore !== undefined) {
         commandArray.push(`--ignore=${options.ignore}`);
     }
-    const pathStr = options.path ? options.path : webRoot + '/modules/custom';
-    pathStr.split(',').forEach((path) => {
+    const pathStr = options.path ? options.path : `${webRoot}/modules/custom`;
+    for (const path of pathStr.split(',')) {
         commandArray.push(path);
-    });
+    }
     return commandArray;
 }
 exports.default = phpcs;
@@ -43,15 +43,15 @@ function phplint(options, webRoot) {
     const excludeStr = options.exclude
         ? options.exclude
         : `vendor,${webRoot}/core,${webRoot}/modules/contrib`;
-    excludeStr.split(',').forEach((exclude) => {
+    for (const exclude of excludeStr.split(',')) {
         commandArray.push(`--exclude=${exclude}`);
-    });
+    }
     const extensionsStr = options.extensions
         ? options.extensions
         : 'php,module,theme,engine,inc,install';
-    extensionsStr.split(',').forEach((extension) => {
+    for (const extension of extensionsStr.split(',')) {
         commandArray.push(`--extensions=${extension}`);
-    });
+    }
     if (options.verbose) {
         commandArray.push('-v');
     }
@@ -73,7 +73,7 @@ exports.default = phplint;
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 function phpmd(options, webRoot) {
     const commandArray = ['phpmd'];
-    commandArray.push(options.path ? options.path : webRoot + '/modules/custom');
+    commandArray.push(options.path ? options.path : `${webRoot}/modules/custom`);
     commandArray.push(options.format ? options.format : 'text');
     commandArray.push(options.ruleset ? options.ruleset : 'codesize,naming,unusedcode');
     commandArray.push('--suffixes', options.suffixes ? options.suffixes : 'php,module,theme,engine,inc');
@@ -149,10 +149,9 @@ function run() {
         if (!['ghcr', 'dockerhub'].includes(registry)) {
             throw new Error("Invalid registry. Can only be 'ghcr' or 'dockerhub'.");
         }
-        const versionString = phpVersion == 'latest' ? 'latest' : 'php' + phpVersion;
-        const dockerImage = (registry == 'ghcr' ? 'ghcr.io/' : '') +
-            'hussainweb/drupalqa:' +
-            versionString;
+        const versionString = phpVersion === 'latest' ? 'latest' : `php${phpVersion}`;
+        const registryPrefix = registry === 'ghcr' ? 'ghcr.io/' : '';
+        const dockerImage = `${registryPrefix}hussainweb/drupalqa:${versionString}`;
         const webRoot = core.getInput('web-root');
         const env = Object.assign({}, process.env);
         const githubWorkspace = env.GITHUB_WORKSPACE;
@@ -169,7 +168,7 @@ function run() {
                 throw new Error('checks must be a mapping of commands and options.');
             }
         }
-        Object.entries(checks).forEach(([key, value]) => {
+        for (const [key, value] of Object.entries(checks)) {
             if (typeof value !== 'object') {
                 throw new Error(`invalid value '${value}' for option ${key}`);
             }
@@ -179,7 +178,7 @@ function run() {
             else {
                 throw new Error(`invalid check ${key} specified.`);
             }
-        });
+        }
         // Pull the image first (and collapse the output)
         core.startGroup('Pull Docker image');
         yield (0, exec_1.exec)('docker', ['pull', dockerImage]);
@@ -190,7 +189,7 @@ function run() {
         commonDockerOptions.push('--init');
         commonDockerOptions.push('--tty');
         commonDockerOptions.push('-v', '/var/run/docker.sock:/var/run/docker.sock');
-        commonDockerOptions.push('-v', githubWorkspace + ':' + githubWorkspace);
+        commonDockerOptions.push('-v', `${githubWorkspace}:${githubWorkspace}`);
         for (const command of checksCommands) {
             core.startGroup(`Running ${command.join(' ')}`);
             yield (0, exec_1.exec)('docker', [
@@ -203,11 +202,14 @@ function run() {
         }
     });
 }
-run().catch(err => {
+try {
+    run();
+}
+catch (err) {
     if (err instanceof Error) {
-        core.setFailed('drupalqa: ' + err.message);
+        core.setFailed(`drupalqa: ${err.message}`);
     }
-});
+}
 
 
 /***/ }),

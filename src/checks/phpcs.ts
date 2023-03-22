@@ -18,9 +18,9 @@ export default function phpcs(options: any, webRoot: string): string[] {
     commandArray.push(`--ignore=${options.ignore}`)
   }
 
-  const pathStr = options.path ? options.path : webRoot + '/modules/custom'
-  pathStr.split(',').forEach((path: string) => {
+  const pathStr = options.path ? options.path : `${webRoot}/modules/custom`
+  for (const path of pathStr.split(',')) {
     commandArray.push(path)
-  })
+  }
   return commandArray
 }
