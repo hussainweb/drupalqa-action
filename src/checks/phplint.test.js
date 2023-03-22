@@ -1,7 +1,7 @@
 const phplint = require('./phplint');
 
 test('it returns defaults', () => {
-  expect(phplint({}, 'web')).toEqual(['phplint', '--exclude=vendor', '--exclude=web/core', '--exclude=web/modules/contrib', '--extensions=php,module,theme,engine,inc,install']);
+  expect(phplint({}, 'web')).toEqual(['phplint', '--exclude=vendor', '--exclude=web/core', '--exclude=web/modules/contrib', '--extensions=php', '--extensions=module', '--extensions=theme', '--extensions=engine', '--extensions=inc', '--extensions=install']);
 });
 
 test('it returns no options', () => {
@@ -24,7 +24,9 @@ test('it handles partial inputs', () => {
   command = phplint({
     extensions: 'php,inc',
   }, 'docroot');
-  expect(command).toContain('--extensions=php,inc');
+  expect(command).toContain('--extensions=php');
+  expect(command).toContain('--extensions=inc');
+  expect(command).not.toContain('--extensions=module');
   expect(command).toContain('--exclude=docroot/modules/contrib');
 
   command = phplint({
