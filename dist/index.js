@@ -9502,13 +9502,13 @@ module.exports = (options, webRoot) => {
     commandArray.push(`--exclude=${exclude}`);
   });
 
-  commandArray.push(
-    `--extensions=${
-      options.extensions
-        ? options.extensions
-        : "php,module,theme,engine,inc,install"
-    }`
-  );
+  const extensionsStr = options.extensions
+    ? options.extensions
+    : "php,module,theme,engine,inc,install";
+  extensionsStr.split(",").forEach((extension) => {
+    commandArray.push(`--extensions=${extension}`);
+  });
+
   if (options.verbose) {
     commandArray.push("-v");
   }
