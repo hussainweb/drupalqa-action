@@ -1,4 +1,9 @@
-export default function phpcs(options: any, webRoot: string): string[] {
+import {PhpCsOptions} from '../types'
+
+export default function phpcs(
+  options: PhpCsOptions,
+  webRoot: string
+): string[] {
   const commandArray = ['phpcs']
   commandArray.push(
     `--standard=${
@@ -18,7 +23,7 @@ export default function phpcs(options: any, webRoot: string): string[] {
     commandArray.push(`--ignore=${options.ignore}`)
   }
 
-  const pathStr = options.path ? options.path : `${webRoot}/modules/custom`
+  const pathStr = options.path || `${webRoot}/modules/custom`
   for (const path of pathStr.split(',')) {
     commandArray.push(path)
   }

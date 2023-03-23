@@ -1,13 +1,16 @@
-export default function phpmd(options: any, webRoot: string): string[] {
+import {PhpMdOptions} from '../types'
+
+export default function phpmd(
+  options: PhpMdOptions,
+  webRoot: string
+): string[] {
   const commandArray = ['phpmd']
-  commandArray.push(options.path ? options.path : `${webRoot}/modules/custom`)
-  commandArray.push(options.format ? options.format : 'text')
-  commandArray.push(
-    options.ruleset ? options.ruleset : 'codesize,naming,unusedcode'
-  )
+  commandArray.push(options.path || `${webRoot}/modules/custom`)
+  commandArray.push(options.format || 'text')
+  commandArray.push(options.ruleset || 'codesize,naming,unusedcode')
   commandArray.push(
     '--suffixes',
-    options.suffixes ? options.suffixes : 'php,module,theme,engine,inc'
+    options.suffixes || 'php,module,theme,engine,inc'
   )
   if (options.exclude) {
     commandArray.push('--exclude', options.exclude)
