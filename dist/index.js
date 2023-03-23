@@ -18,7 +18,7 @@ function phpcs(options, webRoot) {
     if (options.ignore !== undefined) {
         commandArray.push(`--ignore=${options.ignore}`);
     }
-    const pathStr = options.path ? options.path : `${webRoot}/modules/custom`;
+    const pathStr = options.path || `${webRoot}/modules/custom`;
     for (const path of pathStr.split(',')) {
         commandArray.push(path);
     }
@@ -40,15 +40,11 @@ function phplint(options, webRoot) {
     if (options.no_default_options) {
         return commandArray;
     }
-    const excludeStr = options.exclude
-        ? options.exclude
-        : `vendor,${webRoot}/core,${webRoot}/modules/contrib`;
+    const excludeStr = options.exclude || `vendor,${webRoot}/core,${webRoot}/modules/contrib`;
     for (const exclude of excludeStr.split(',')) {
         commandArray.push(`--exclude=${exclude}`);
     }
-    const extensionsStr = options.extensions
-        ? options.extensions
-        : 'php,module,theme,engine,inc,install';
+    const extensionsStr = options.extensions || 'php,module,theme,engine,inc,install';
     for (const extension of extensionsStr.split(',')) {
         commandArray.push(`--extensions=${extension}`);
     }
@@ -73,10 +69,10 @@ exports.default = phplint;
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 function phpmd(options, webRoot) {
     const commandArray = ['phpmd'];
-    commandArray.push(options.path ? options.path : `${webRoot}/modules/custom`);
-    commandArray.push(options.format ? options.format : 'text');
-    commandArray.push(options.ruleset ? options.ruleset : 'codesize,naming,unusedcode');
-    commandArray.push('--suffixes', options.suffixes ? options.suffixes : 'php,module,theme,engine,inc');
+    commandArray.push(options.path || `${webRoot}/modules/custom`);
+    commandArray.push(options.format || 'text');
+    commandArray.push(options.ruleset || 'codesize,naming,unusedcode');
+    commandArray.push('--suffixes', options.suffixes || 'php,module,theme,engine,inc');
     if (options.exclude) {
         commandArray.push('--exclude', options.exclude);
     }

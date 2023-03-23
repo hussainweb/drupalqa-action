@@ -2,11 +2,15 @@ import * as core from '@actions/core'
 import {exec} from '@actions/exec'
 import * as YAML from 'yaml'
 
+import {CheckCallable} from './types'
+
 import phplint from './checks/phplint'
 import phpcs from './checks/phpcs'
 import phpmd from './checks/phpmd'
 
-const availableChecks: {[key: string]: any} = {
+const availableChecks: {
+  [key: string]: CheckCallable
+} = {
   phplint,
   phpcs,
   phpmd
