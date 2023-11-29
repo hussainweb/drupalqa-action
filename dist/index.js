@@ -138,7 +138,7 @@ const availableChecks = {
 function run() {
     return __awaiter(this, void 0, void 0, function* () {
         const phpVersion = core.getInput('php-version');
-        if (!['7.3', '7.4', '8.0', '8.1', '8.2', 'latest'].includes(phpVersion)) {
+        if (!['7.3', '7.4', '8.0', '8.1', '8.2', '8.3', 'latest'].includes(phpVersion)) {
             throw new Error('Invalid PHP version.');
         }
         const registry = core.getInput('registry');
