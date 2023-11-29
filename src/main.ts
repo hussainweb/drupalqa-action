@@ -18,7 +18,9 @@ const availableChecks: {
 
 async function run(): Promise<void> {
   const phpVersion = core.getInput('php-version')
-  if (!['7.3', '7.4', '8.0', '8.1', '8.2', 'latest'].includes(phpVersion)) {
+  if (
+    !['7.3', '7.4', '8.0', '8.1', '8.2', '8.3', 'latest'].includes(phpVersion)
+  ) {
     throw new Error('Invalid PHP version.')
   }
 

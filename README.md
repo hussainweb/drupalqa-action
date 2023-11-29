@@ -6,26 +6,27 @@ This action runs checks from [DrupalQA](https://github.com/hussainweb/drupalqa) 
 
 ### `php-version`
 
-The PHP version to use (corresponds to the Docker image). Allowed options are and their corresponding Docker images are as follows. Default: `8.1`.
+The PHP version to use (corresponds to the Docker image). Allowed options and their corresponding Docker images are as follows. Default: `8.2`.
 
 | php-version | Docker image |
 | ----------- | ------------ |
 | 7.3         | hussainweb/drupalqa:php7.3 (_not supported_) |
 | 7.4         | hussainweb/drupalqa:php7.4 (_not supported_) |
-| 8.0         | hussainweb/drupalqa:php8.0 |
+| 8.0         | hussainweb/drupalqa:php8.0 (_not supported_) |
 | 8.1         | hussainweb/drupalqa:php8.1 |
-| 8.2         | hussainweb/drupalqa:php8.1 |
+| 8.2         | hussainweb/drupalqa:php8.2 |
+| 8.3         | hussainweb/drupalqa:php8.3 |
 | latest      | hussainweb/drupalqa:latest |
 
 Note: The actual Docker image used also depends on the `registry` option. If that option is set to `'ghcr'` (default value), then the Docker image is prefixed with `ghcr.io/`. For example, `ghcr.io/hussainweb/drupalqa:php8.2`.
 
 ### `web-root`
 
-The web root (document root) to consider for default values for some of the checks. Default: `web`.
+The web root (document root) for default values for some of the checks. Default: `web`.
 
 ### `checks`
 
-An YAML string describing the checks to run. The default structure is as below.
+A YAML string describing the checks to run. The default structure is as below.
 
 ```yaml
     checks: |
