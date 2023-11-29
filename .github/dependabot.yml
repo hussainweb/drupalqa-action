@@ -4,8 +4,27 @@ updates:
     directory: /
     schedule:
       interval: daily
+    groups:
+      github-actions:
+        patterns:
+          - "actions/*"
 
   - package-ecosystem: npm
     directory: /
     schedule:
       interval: daily
+    groups:
+      types:
+        patterns:
+          - "@types/*"
+      actions:
+        patterns:
+          - "@actions/*"
+      linters:
+        patterns:
+          - "eslint*"
+          - "prettier"
+      test-runners:
+        patterns:
+          - "jest"
+          - "*-jest"
