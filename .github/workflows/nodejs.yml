@@ -23,7 +23,7 @@ jobs:
     - run: npm ci
     - run: npm run all
 
-    - uses: stefanzweifel/git-auto-commit-action@v4
+    - uses: stefanzweifel/git-auto-commit-action@v5
       with:
         commit_message: Add prepared script
         commit_options: '--no-verify --signoff'
