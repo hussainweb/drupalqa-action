@@ -4,6 +4,7 @@ import * as YAML from 'yaml'
 
 import {CheckCallable} from './types'
 
+import custom from './checks/custom'
 import grumphp from './checks/grumphp'
 import phplint from './checks/phplint'
 import phpcs from './checks/phpcs'
@@ -13,6 +14,7 @@ import phpstan from './checks/phpstan'
 const availableChecks: {
   [key: string]: CheckCallable
 } = {
+  custom,
   grumphp,
   phplint,
   phpcs,
@@ -62,6 +64,8 @@ async function run(): Promise<void> {
     }
     if (key in availableChecks) {
       checksCommands.push(availableChecks[key](value, webRoot))
+    } else if (key.startsWith('custom_')) {
+      checksCommands.push(availableChecks['custom'](value, webRoot))
     } else {
       throw new Error(`invalid check ${key} specified.`)
     }

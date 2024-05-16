@@ -37,3 +37,7 @@ export interface PhpStanOptions {
   configuration?: string
   paths?: string[]
 }
+
+export interface CustomOptions {
+  command?: string[]
+}
