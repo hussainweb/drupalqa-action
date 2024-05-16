@@ -1,6 +1,6 @@
 import {GrumPHPOptions} from '../types'
 
-export default function phpmd(
+export default function grumphp(
   options: GrumPHPOptions,
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   webRoot: string
