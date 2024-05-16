@@ -7,7 +7,7 @@ require('./sourcemap-register.js');/******/ (() => { // webpackBootstrap
 "use strict";
 
 Object.defineProperty(exports, "__esModule", ({ value: true }));
-function phpmd(options, 
+function grumphp(options, 
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 webRoot) {
     const commandArray = ['grumphp', 'run'];
@@ -19,7 +19,7 @@ webRoot) {
     }
     return commandArray;
 }
-exports["default"] = phpmd;
+exports["default"] = grumphp;
 
 
 /***/ }),
