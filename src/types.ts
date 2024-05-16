@@ -27,3 +27,8 @@ export interface PhpLintOptions {
   no_default_options?: boolean
   verbose?: boolean
 }
+
+export interface GrumPHPOptions {
+  testsuite?: string
+  tasks?: string[]
+}
