@@ -24,6 +24,7 @@ updates:
         patterns:
           - "eslint*"
           - "prettier"
+          - "@typescript-eslint/*"
       test-runners:
         patterns:
           - "jest"
