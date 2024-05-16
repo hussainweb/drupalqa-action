@@ -126,3 +126,16 @@ These are the default options for `phpmd`. All are optional and you can override
 ```
 
 In the above sample, the path begins with `web` as it is the default for `web-root` input. The actual default will depend on the `web-root` input.
+
+### grumphp
+
+These are the default options for `grumphp`. All are optional and you can override these as per the [command line options of `grumphp run`](https://github.com/phpro/grumphp/blob/v2.x/doc/commands.md#run).
+
+```yaml
+    checks: |
+      grumphp:
+        testsuite: ''
+        tasks: []
+```
+
+This runs `grumphp run` on the code base.
