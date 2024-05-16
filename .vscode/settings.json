@@ -2,10 +2,13 @@
   "cSpell.words": [
     "dockerhub",
     "drupalqa",
+    "grumphp",
     "hussainweb",
     "phpcs",
     "phplint",
     "phpmd",
+    "phpstan",
+    "testsuite",
     "workdir"
   ]
 }
