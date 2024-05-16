@@ -4,6 +4,7 @@ import * as YAML from 'yaml'
 
 import {CheckCallable} from './types'
 
+import grumphp from './checks/grumphp'
 import phplint from './checks/phplint'
 import phpcs from './checks/phpcs'
 import phpmd from './checks/phpmd'
@@ -11,6 +12,7 @@ import phpmd from './checks/phpmd'
 const availableChecks: {
   [key: string]: CheckCallable
 } = {
+  grumphp,
   phplint,
   phpcs,
   phpmd
