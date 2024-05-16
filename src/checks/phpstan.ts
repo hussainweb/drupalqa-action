@@ -2,6 +2,7 @@ import {PhpStanOptions} from '../types'
 
 export default function phpstan(
   options: PhpStanOptions,
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   webRoot: string
 ): string[] {
   const commandArray = ['phpstan']
