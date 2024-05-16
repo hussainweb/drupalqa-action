@@ -1,6 +1,22 @@
 require('./sourcemap-register.js');/******/ (() => { // webpackBootstrap
 /******/ 	var __webpack_modules__ = ({
 
+/***/ 2649:
+/***/ ((__unused_webpack_module, exports) => {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+function custom(options, 
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
+webRoot) {
+    return options.command !== undefined ? options.command : [];
+}
+exports["default"] = custom;
+
+
+/***/ }),
+
 /***/ 5986:
 /***/ ((__unused_webpack_module, exports) => {
 
@@ -173,12 +189,14 @@ Object.defineProperty(exports, "__esModule", ({ value: true }));
 const core = __importStar(__nccwpck_require__(2186));
 const exec_1 = __nccwpck_require__(1514);
 const YAML = __importStar(__nccwpck_require__(4083));
+const custom_1 = __importDefault(__nccwpck_require__(2649));
 const grumphp_1 = __importDefault(__nccwpck_require__(5986));
 const phplint_1 = __importDefault(__nccwpck_require__(3274));
 const phpcs_1 = __importDefault(__nccwpck_require__(2464));
 const phpmd_1 = __importDefault(__nccwpck_require__(8498));
 const phpstan_1 = __importDefault(__nccwpck_require__(6449));
 const availableChecks = {
+    custom: custom_1.default,
     grumphp: grumphp_1.default,
     phplint: phplint_1.default,
     phpcs: phpcs_1.default,
@@ -220,6 +238,9 @@ function run() {
             }
             if (key in availableChecks) {
                 checksCommands.push(availableChecks[key](value, webRoot));
+            }
+            else if (key.startsWith('custom_')) {
+                checksCommands.push(availableChecks['custom'](value, webRoot));
             }
             else {
                 throw new Error(`invalid check ${key} specified.`);
