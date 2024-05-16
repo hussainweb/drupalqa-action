@@ -8,6 +8,7 @@ import grumphp from './checks/grumphp'
 import phplint from './checks/phplint'
 import phpcs from './checks/phpcs'
 import phpmd from './checks/phpmd'
+import phpstan from './checks/phpstan'
 
 const availableChecks: {
   [key: string]: CheckCallable
@@ -15,7 +16,8 @@ const availableChecks: {
   grumphp,
   phplint,
   phpcs,
-  phpmd
+  phpmd,
+  phpstan
 }
 
 async function run(): Promise<void> {

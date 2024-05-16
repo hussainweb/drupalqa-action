@@ -32,3 +32,8 @@ export interface GrumPHPOptions {
   testsuite?: string
   tasks?: string[]
 }
+
+export interface PhpStanOptions {
+  configuration?: string
+  paths?: string[]
+}

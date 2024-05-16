@@ -106,6 +106,29 @@ exports["default"] = phpmd;
 
 /***/ }),
 
+/***/ 6449:
+/***/ ((__unused_webpack_module, exports) => {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+function phpstan(options, 
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
+webRoot) {
+    const commandArray = ['phpstan'];
+    if (options.configuration !== undefined) {
+        commandArray.push(`--configuration ${options.configuration}`);
+    }
+    if (options.paths !== undefined) {
+        commandArray.unshift(...options.paths);
+    }
+    return commandArray;
+}
+exports["default"] = phpstan;
+
+
+/***/ }),
+
 /***/ 3109:
 /***/ (function(__unused_webpack_module, exports, __nccwpck_require__) {
 
@@ -154,11 +177,13 @@ const grumphp_1 = __importDefault(__nccwpck_require__(5986));
 const phplint_1 = __importDefault(__nccwpck_require__(3274));
 const phpcs_1 = __importDefault(__nccwpck_require__(2464));
 const phpmd_1 = __importDefault(__nccwpck_require__(8498));
+const phpstan_1 = __importDefault(__nccwpck_require__(6449));
 const availableChecks = {
     grumphp: grumphp_1.default,
     phplint: phplint_1.default,
     phpcs: phpcs_1.default,
-    phpmd: phpmd_1.default
+    phpmd: phpmd_1.default,
+    phpstan: phpstan_1.default
 };
 function run() {
     return __awaiter(this, void 0, void 0, function* () {
