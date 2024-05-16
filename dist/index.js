@@ -1,6 +1,29 @@
 require('./sourcemap-register.js');/******/ (() => { // webpackBootstrap
 /******/ 	var __webpack_modules__ = ({
 
+/***/ 5986:
+/***/ ((__unused_webpack_module, exports) => {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+function phpmd(options, 
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
+webRoot) {
+    const commandArray = ['grumphp', 'run'];
+    if (options.testsuite !== undefined) {
+        commandArray.push(`--testsuite=${options.testsuite}`);
+    }
+    if (options.tasks !== undefined) {
+        commandArray.push(`--tasks=${options.tasks.join(',')}`);
+    }
+    return commandArray;
+}
+exports["default"] = phpmd;
+
+
+/***/ }),
+
 /***/ 2464:
 /***/ ((__unused_webpack_module, exports) => {
 
@@ -127,10 +150,12 @@ Object.defineProperty(exports, "__esModule", ({ value: true }));
 const core = __importStar(__nccwpck_require__(2186));
 const exec_1 = __nccwpck_require__(1514);
 const YAML = __importStar(__nccwpck_require__(4083));
+const grumphp_1 = __importDefault(__nccwpck_require__(5986));
 const phplint_1 = __importDefault(__nccwpck_require__(3274));
 const phpcs_1 = __importDefault(__nccwpck_require__(2464));
 const phpmd_1 = __importDefault(__nccwpck_require__(8498));
 const availableChecks = {
+    grumphp: grumphp_1.default,
     phplint: phplint_1.default,
     phpcs: phpcs_1.default,
     phpmd: phpmd_1.default
