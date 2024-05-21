@@ -27,6 +27,7 @@ jobs:
     - run: npm run all
 
     - uses: stefanzweifel/git-auto-commit-action@v5
+      if: github.event_name != 'pull_request'
       with:
         commit_message: Add prepared script
         commit_options: '--no-verify --signoff'
