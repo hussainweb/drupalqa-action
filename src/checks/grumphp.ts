@@ -5,7 +5,7 @@ export default function grumphp(
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   webRoot: string
 ): string[] {
-  const commandArray = ['grumphp', 'run']
+  const commandArray = ['grumphp', 'run', '--no-interaction']
   if (options.testsuite !== undefined) {
     commandArray.push(`--testsuite=${options.testsuite}`)
   }
