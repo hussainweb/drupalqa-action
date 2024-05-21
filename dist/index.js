@@ -26,7 +26,7 @@ Object.defineProperty(exports, "__esModule", ({ value: true }));
 function grumphp(options, 
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 webRoot) {
-    const commandArray = ['grumphp', 'run'];
+    const commandArray = ['grumphp', 'run', '--no-interaction'];
     if (options.testsuite !== undefined) {
         commandArray.push(`--testsuite=${options.testsuite}`);
     }
