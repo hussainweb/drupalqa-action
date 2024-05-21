@@ -4,7 +4,8 @@ import {expect, test} from '@jest/globals'
 test('it returns defaults', () => {
   expect(grumphp({}, 'web')).toEqual([
     'grumphp',
-    'run'
+    'run',
+    '--no-interaction'
   ])
 })
 
