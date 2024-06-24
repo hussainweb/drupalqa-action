@@ -7,12 +7,12 @@ require('./sourcemap-register.js');/******/ (() => { // webpackBootstrap
 "use strict";
 
 Object.defineProperty(exports, "__esModule", ({ value: true }));
+exports["default"] = custom;
 function custom(options, 
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 webRoot) {
     return options.command !== undefined ? options.command : [];
 }
-exports["default"] = custom;
 
 
 /***/ }),
@@ -23,6 +23,7 @@ exports["default"] = custom;
 "use strict";
 
 Object.defineProperty(exports, "__esModule", ({ value: true }));
+exports["default"] = grumphp;
 function grumphp(options, 
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 webRoot) {
@@ -35,7 +36,6 @@ webRoot) {
     }
     return commandArray;
 }
-exports["default"] = grumphp;
 
 
 /***/ }),
@@ -46,6 +46,7 @@ exports["default"] = grumphp;
 "use strict";
 
 Object.defineProperty(exports, "__esModule", ({ value: true }));
+exports["default"] = phpcs;
 function phpcs(options, webRoot) {
     const commandArray = ['phpcs'];
     commandArray.push(`--standard=${options.standard !== undefined
@@ -63,7 +64,6 @@ function phpcs(options, webRoot) {
     }
     return commandArray;
 }
-exports["default"] = phpcs;
 
 
 /***/ }),
@@ -74,6 +74,7 @@ exports["default"] = phpcs;
 "use strict";
 
 Object.defineProperty(exports, "__esModule", ({ value: true }));
+exports["default"] = phplint;
 function phplint(options, webRoot) {
     const commandArray = ['phplint'];
     if (options.no_default_options) {
@@ -95,7 +96,6 @@ function phplint(options, webRoot) {
     }
     return commandArray;
 }
-exports["default"] = phplint;
 
 
 /***/ }),
@@ -106,6 +106,7 @@ exports["default"] = phplint;
 "use strict";
 
 Object.defineProperty(exports, "__esModule", ({ value: true }));
+exports["default"] = phpmd;
 function phpmd(options, webRoot) {
     const commandArray = ['phpmd'];
     commandArray.push(options.path || `${webRoot}/modules/custom`);
@@ -117,7 +118,6 @@ function phpmd(options, webRoot) {
     }
     return commandArray;
 }
-exports["default"] = phpmd;
 
 
 /***/ }),
@@ -128,6 +128,7 @@ exports["default"] = phpmd;
 "use strict";
 
 Object.defineProperty(exports, "__esModule", ({ value: true }));
+exports["default"] = phpstan;
 function phpstan(options, 
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 webRoot) {
@@ -140,7 +141,6 @@ webRoot) {
     }
     return commandArray;
 }
-exports["default"] = phpstan;
 
 
 /***/ }),
