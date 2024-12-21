@@ -2,9 +2,7 @@ import phpstan from '../src/checks/phpstan'
 import {expect, test} from '@jest/globals'
 
 test('it returns defaults', () => {
-  expect(phpstan({}, 'web')).toEqual([
-    'phpstan'
-  ])
+  expect(phpstan({}, 'web')).toEqual(['phpstan'])
 })
 
 test('it handles configuration', () => {

@@ -2,18 +2,14 @@ import grumphp from '../src/checks/grumphp'
 import {expect, test} from '@jest/globals'
 
 test('it returns defaults', () => {
-  expect(grumphp({}, 'web')).toEqual([
-    'grumphp',
-    'run',
-    '--no-interaction'
-  ])
+  expect(grumphp({}, 'web')).toEqual(['grumphp', 'run', '--no-interaction'])
 })
 
 test('it handles partial inputs', () => {
   let command
   command = grumphp(
     {
-      testsuite: 'linters',
+      testsuite: 'linters'
     },
     'web'
   )
@@ -21,10 +17,7 @@ test('it handles partial inputs', () => {
 
   command = grumphp(
     {
-      tasks: [
-        'phpcs',
-        'phpmd'
-      ]
+      tasks: ['phpcs', 'phpmd']
     },
     'docroot'
   )
