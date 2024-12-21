@@ -16,6 +16,7 @@ The PHP version to use (corresponds to the Docker image). Allowed options and th
 | 8.1         | hussainweb/drupalqa:php8.1 |
 | 8.2         | hussainweb/drupalqa:php8.2 |
 | 8.3         | hussainweb/drupalqa:php8.3 |
+| 8.4         | hussainweb/drupalqa:php8.4 |
 | latest      | hussainweb/drupalqa:latest |
 
 Note: The actual Docker image used also depends on the `registry` option. If that option is set to `'ghcr'` (default value), then the Docker image is prefixed with `ghcr.io/`. For example, `ghcr.io/hussainweb/drupalqa:php8.2`.
