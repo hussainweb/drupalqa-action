@@ -59,7 +59,7 @@ jobs:
 
       # Then, commit the updated licenses to the repository.
       - uses: stefanzweifel/git-auto-commit-action@v7
-        if: ${{ github.event_name == 'workflow_dispatch' }}'
+        if: ${{ github.event_name == 'workflow_dispatch' }}
         with:
           commit_message: Auto-update license files
           commit_options: '--no-verify --signoff'
