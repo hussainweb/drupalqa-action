@@ -58,15 +58,16 @@ jobs:
         run: licensed cache
 
       # Then, commit the updated licenses to the repository.
-      - if: ${{ github.event_name == 'workflow_dispatch' }}
-        name: Commit Licenses
-        id: commit-licenses
-        run: |
-          git config --local user.email "licensed-ci@users.noreply.github.com"
-          git config --local user.name "licensed-ci"
-          git add .
-          git commit -m "Auto-update license files"
-          git push
+      - uses: stefanzweifel/git-auto-commit-action@v7
+        if: ${{ github.event_name == 'workflow_dispatch' }}'
+        with:
+          commit_message: Auto-update license files
+          commit_options: '--no-verify --signoff'
+          file_pattern: dist/
+          commit_user_name: github-actions
+          commit_user_email: licensed-ci@users.noreply.github.com
+          commit_author: hw <licensed-ci@users.noreply.github.com>
+          push_options: ''
 
       # Last, check the status of the cached licenses.
       - name: Check Licenses
