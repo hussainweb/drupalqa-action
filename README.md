@@ -1,7 +1,7 @@
-# Github action for DrupalQA
+# GitHub Action for DrupalQA
 
 This action runs checks from [DrupalQA](https://github.com/hussainweb/drupalqa)
-on a Drupal code base. While you can directly use the Docker image with Github
+on a Drupal codebase. While you can directly use the Docker image with GitHub
 Actions, this Action makes it simpler to specify and configure some of the
 checks.
 
@@ -47,7 +47,7 @@ The options for each of these are described in the
 
 ### `registry`
 
-The registry to use to download the image. Only 'ghcr' and 'dockerhub' are
+The registry to use to download the image. Only `ghcr` and `dockerhub` are
 supported. You probably don't need to change this option. It's only there to
 compare the performance and switch to DockerHub in case there is a problem with
 ghcr.io (which is unlikely). Default: `ghcr`.
@@ -160,7 +160,7 @@ checks: |
     tasks: []
 ```
 
-This runs `grumphp run` on the code base.
+This runs `grumphp run` on the codebase.
 
 ### phpstan
 
@@ -175,7 +175,7 @@ checks: |
     paths: []
 ```
 
-This runs `phpstan` on the code base with the specified options. For the
+This runs `phpstan` on the codebase with the specified options. For the
 defaults to work, you must have a `phpstan.neon` configuration file in your
 codebase as
 [mentioned in the documentation](https://phpstan.org/user-guide/command-line-usage#running-without-arguments).
