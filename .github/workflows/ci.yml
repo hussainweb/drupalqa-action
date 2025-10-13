@@ -58,7 +58,7 @@ jobs:
         uses: ./
         with:
           php-version: 8.4
-          checks: ""
+          checks: ''
 
   build:
     runs-on: ubuntu-latest
