@@ -1,5 +1,5 @@
 import phpmd from '../src/checks/phpmd'
-import {expect, test} from '@jest/globals'
+import { expect, test } from '@jest/globals'
 
 test('it returns defaults', () => {
   expect(phpmd({}, 'web')).toEqual([

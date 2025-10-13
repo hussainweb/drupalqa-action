@@ -1,5 +1,5 @@
 import grumphp from '../src/checks/grumphp'
-import {expect, test} from '@jest/globals'
+import { expect, test } from '@jest/globals'
 
 test('it returns defaults', () => {
   expect(grumphp({}, 'web')).toEqual(['grumphp', 'run', '--no-interaction'])

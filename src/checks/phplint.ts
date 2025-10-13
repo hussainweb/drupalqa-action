@@ -1,4 +1,4 @@
-import {PhpLintOptions} from '../types'
+import { PhpLintOptions } from '../types'
 
 export default function phplint(
   options: PhpLintOptions,

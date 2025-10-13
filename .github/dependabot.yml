@@ -7,7 +7,11 @@ updates:
     groups:
       github-actions:
         patterns:
-          - "actions/*"
+          - 'actions/*'
+      actions-minor:
+        update-types:
+          - minor
+          - patch
 
   - package-ecosystem: npm
     directory: /
@@ -16,16 +20,16 @@ updates:
     groups:
       types:
         patterns:
-          - "@types/*"
+          - '@types/*'
       actions:
         patterns:
-          - "@actions/*"
+          - '@actions/*'
       linters:
         patterns:
-          - "eslint*"
-          - "prettier"
-          - "@typescript-eslint/*"
+          - 'eslint*'
+          - 'prettier'
+          - '@typescript-eslint/*'
       test-runners:
         patterns:
-          - "jest"
-          - "*-jest"
+          - 'jest'
+          - '*-jest'

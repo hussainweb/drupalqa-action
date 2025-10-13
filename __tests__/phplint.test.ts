@@ -1,5 +1,5 @@
 import phplint from '../src/checks/phplint'
-import {expect, test} from '@jest/globals'
+import { expect, test } from '@jest/globals'
 
 test('it returns defaults', () => {
   expect(phplint({}, 'web')).toEqual([
@@ -17,7 +17,7 @@ test('it returns defaults', () => {
 })
 
 test('it returns no options', () => {
-  expect(phplint({no_default_options: true}, 'web')).toEqual(['phplint'])
+  expect(phplint({ no_default_options: true }, 'web')).toEqual(['phplint'])
   expect(
     phplint(
       {
