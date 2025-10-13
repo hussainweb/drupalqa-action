@@ -1,4 +1,4 @@
-import {PhpMdOptions} from '../types'
+import { PhpMdOptions } from '../types'
 
 export default function phpmd(
   options: PhpMdOptions,

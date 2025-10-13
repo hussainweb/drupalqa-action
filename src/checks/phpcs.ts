@@ -1,4 +1,4 @@
-import {PhpCsOptions} from '../types'
+import { PhpCsOptions } from '../types'
 
 export default function phpcs(
   options: PhpCsOptions,

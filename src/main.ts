@@ -1,8 +1,8 @@
 import * as core from '@actions/core'
-import {exec} from '@actions/exec'
+import { exec } from '@actions/exec'
 import * as YAML from 'yaml'
 
-import {CheckCallable} from './types'
+import { CheckCallable } from './types'
 
 import custom from './checks/custom'
 import grumphp from './checks/grumphp'
@@ -49,7 +49,7 @@ async function run(): Promise<void> {
 
   const webRoot = core.getInput('web-root')
 
-  const env = {...process.env}
+  const env = { ...process.env }
   const githubWorkspace = env.GITHUB_WORKSPACE as string
 
   // Parse 'checks' into an array of commands.

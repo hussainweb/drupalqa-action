@@ -1,30 +1,81 @@
-import eslint from '@eslint/js'
+// See: https://eslint.org/docs/latest/use/configure/configuration-files
+
+import { fixupPluginRules } from '@eslint/compat'
+import { FlatCompat } from '@eslint/eslintrc'
+import js from '@eslint/js'
 import typescriptEslint from '@typescript-eslint/eslint-plugin'
-import tseslint from 'typescript-eslint'
+import tsParser from '@typescript-eslint/parser'
+import _import from 'eslint-plugin-import'
 import jest from 'eslint-plugin-jest'
-import github from 'eslint-plugin-github'
+import prettier from 'eslint-plugin-prettier'
+import globals from 'globals'
+import path from 'node:path'
+import { fileURLToPath } from 'node:url'
+
+const __filename = fileURLToPath(import.meta.url)
+const __dirname = path.dirname(__filename)
+const compat = new FlatCompat({
+  baseDirectory: __dirname,
+  recommendedConfig: js.configs.recommended,
+  allConfig: js.configs.all
+})
 
 export default [
-  ...tseslint.config(eslint.configs.recommended, tseslint.configs.recommended),
-  github.getFlatConfigs().recommended,
   {
-    rules: {
-      'importPlugin/no-unresolved': 'off'
-    }
+    ignores: ['**/coverage', '**/dist', '**/linter', '**/node_modules']
   },
-  ...github.getFlatConfigs().typescript,
+  ...compat.extends(
+    'eslint:recommended',
+    'plugin:@typescript-eslint/eslint-recommended',
+    'plugin:@typescript-eslint/recommended',
+    'plugin:jest/recommended',
+    'plugin:prettier/recommended'
+  ),
   {
-    files: ['__tests__/**/*.test.ts'],
-    plugins: {jest: jest},
-    languageOptions: {
-      globals: jest.environments.globals.globals
+    plugins: {
+      import: fixupPluginRules(_import),
+      jest,
+      prettier,
+      '@typescript-eslint': typescriptEslint
     },
+
+    languageOptions: {
+      globals: {
+        ...globals.node,
+        ...globals.jest,
+        Atomics: 'readonly',
+        SharedArrayBuffer: 'readonly'
+      },
+
+      parser: tsParser,
+      ecmaVersion: 2023,
+      sourceType: 'module',
+
+      parserOptions: {
+        project: ['tsconfig.eslint.json'],
+        tsconfigRootDir: __dirname
+      }
+    },
+
+    settings: {
+      'import/resolver': {
+        typescript: {
+          alwaysTryTypes: true,
+          project: 'tsconfig.eslint.json'
+        }
+      }
+    },
+
     rules: {
-      'jest/no-disabled-tests': 'warn',
-      'jest/no-focused-tests': 'error',
-      'jest/no-identical-title': 'error',
-      'jest/prefer-to-have-length': 'warn',
-      'jest/valid-expect': 'error'
+      camelcase: 'off',
+      'eslint-comments/no-use': 'off',
+      'eslint-comments/no-unused-disable': 'off',
+      'i18n-text/no-en': 'off',
+      'import/no-namespace': 'off',
+      'no-console': 'off',
+      'no-shadow': 'off',
+      'no-unused-vars': 'off',
+      'prettier/prettier': 'error'
     }
   }
 ]

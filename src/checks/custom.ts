@@ -1,4 +1,4 @@
-import {CustomOptions} from '../types'
+import { CustomOptions } from '../types'
 
 export default function custom(
   options: CustomOptions,
