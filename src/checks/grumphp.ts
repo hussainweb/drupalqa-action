@@ -1,4 +1,4 @@
-import { GrumPHPOptions } from '../types'
+import { GrumPHPOptions } from '../types.js'
 
 export default function grumphp(
   options: GrumPHPOptions,
