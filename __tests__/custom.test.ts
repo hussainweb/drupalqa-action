@@ -6,8 +6,7 @@ test('it returns defaults', () => {
 })
 
 test('it handles empty commands', () => {
-  let command
-  command = custom(
+  const command = custom(
     {
       command: []
     },
@@ -17,8 +16,7 @@ test('it handles empty commands', () => {
 })
 
 test('it handles commands', () => {
-  let command
-  command = custom(
+  const command = custom(
     {
       command: ['phpmd']
     },

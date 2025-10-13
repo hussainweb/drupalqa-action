@@ -1,4 +1,4 @@
-import { PhpStanOptions } from '../types'
+import { PhpStanOptions } from '../types.js'
 
 export default function phpstan(
   options: PhpStanOptions,

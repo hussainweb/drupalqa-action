@@ -1,4 +1,4 @@
-export type OptionsObject = {}
+export type OptionsObject = object
 
 export type CheckCallable = (
   options: OptionsObject,

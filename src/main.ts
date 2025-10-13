@@ -2,14 +2,14 @@ import * as core from '@actions/core'
 import { exec } from '@actions/exec'
 import * as YAML from 'yaml'
 
-import { CheckCallable } from './types'
+import { CheckCallable } from './types.js'
 
-import custom from './checks/custom'
-import grumphp from './checks/grumphp'
-import phplint from './checks/phplint'
-import phpcs from './checks/phpcs'
-import phpmd from './checks/phpmd'
-import phpstan from './checks/phpstan'
+import custom from './checks/custom.js'
+import grumphp from './checks/grumphp.js'
+import phplint from './checks/phplint.js'
+import phpcs from './checks/phpcs.js'
+import phpmd from './checks/phpmd.js'
+import phpstan from './checks/phpstan.js'
 
 const availableChecks: {
   [key: string]: CheckCallable
@@ -22,7 +22,7 @@ const availableChecks: {
   phpstan
 }
 
-async function run(): Promise<void> {
+export async function run(): Promise<void> {
   const phpVersion = core.getInput('php-version')
   const validVersions = [
     '7.3',
@@ -101,13 +101,5 @@ async function run(): Promise<void> {
       ...command
     ])
     core.endGroup()
-  }
-}
-
-try {
-  run()
-} catch (err) {
-  if (err instanceof Error) {
-    core.setFailed(`drupalqa: ${err.message}`)
   }
 }

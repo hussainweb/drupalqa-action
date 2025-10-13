@@ -6,8 +6,7 @@ test('it returns defaults', () => {
 })
 
 test('it handles configuration', () => {
-  let command
-  command = phpstan(
+  const command = phpstan(
     {
       configuration: 'phpstan.neon'
     },

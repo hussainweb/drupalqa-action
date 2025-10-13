@@ -1,4 +1,4 @@
-import { CustomOptions } from '../types'
+import { CustomOptions } from '../types.js'
 
 export default function custom(
   options: CustomOptions,
