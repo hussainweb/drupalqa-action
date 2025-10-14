@@ -1,5 +1,11 @@
 # GitHub Action for DrupalQA
 
+[![GitHub Super-Linter](https://github.com/hussainweb/drupalqa-action/actions/workflows/linter.yml/badge.svg)](https://github.com/super-linter/super-linter)
+![CI](https://github.com/hussainweb/drupalqa-action/actions/workflows/ci.yml/badge.svg)
+[![Check dist/](https://github.com/hussainweb/drupalqa-action/actions/workflows/check-dist.yml/badge.svg)](https://github.com/hussainweb/drupalqa-action/actions/workflows/check-dist.yml)
+[![CodeQL](https://github.com/hussainweb/drupalqa-action/actions/workflows/codeql-analysis.yml/badge.svg)](https://github.com/hussainweb/drupalqa-action/actions/workflows/codeql-analysis.yml)
+[![Coverage](./badges/coverage.svg)](./badges/coverage.svg)
+
 This action runs checks from [DrupalQA](https://github.com/hussainweb/drupalqa)
 on a Drupal codebase. While you can directly use the Docker image with GitHub
 Actions, this Action makes it simpler to specify and configure some of the
@@ -10,14 +16,14 @@ checks.
 ### `php-version`
 
 The PHP version to use (corresponds to the Docker image). Allowed options and
-their corresponding Docker images are as follows. Default: `8.2`.
+their corresponding Docker images are as follows. Default: `8.4`.
 
 | php-version | Docker image                                 |
 | ----------- | -------------------------------------------- |
 | 7.3         | hussainweb/drupalqa:php7.3 (_not supported_) |
 | 7.4         | hussainweb/drupalqa:php7.4 (_not supported_) |
 | 8.0         | hussainweb/drupalqa:php8.0 (_not supported_) |
-| 8.1         | hussainweb/drupalqa:php8.1                   |
+| 8.1         | hussainweb/drupalqa:php8.1 (_not supported_) |
 | 8.2         | hussainweb/drupalqa:php8.2                   |
 | 8.3         | hussainweb/drupalqa:php8.3                   |
 | 8.4         | hussainweb/drupalqa:php8.4                   |
@@ -61,7 +67,7 @@ No outputs.
 ```yaml
 uses: hussainweb/drupalqa@v1
 with:
-  php-version: 8.2
+  php-version: 8.4
   checks: |
     phplint: {}
     phpcs:
