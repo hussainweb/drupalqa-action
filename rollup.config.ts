@@ -12,7 +12,13 @@ const config = {
     format: 'es',
     sourcemap: true
   },
-  plugins: [typescript(), nodeResolve({ preferBuiltins: true }), commonjs()]
+  plugins: [typescript(), nodeResolve({ preferBuiltins: true }), commonjs()],
+  onwarn(warning, warn) {
+    if (warning.code === 'THIS_IS_UNDEFINED') {
+      return
+    }
+    warn(warning)
+  }
 }
 
 export default config
