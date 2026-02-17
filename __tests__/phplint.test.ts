@@ -1,5 +1,5 @@
-import phplint from '../src/checks/phplint'
 import { expect, test } from '@jest/globals'
+import phplint from '../src/checks/phplint'
 
 test('it returns defaults', () => {
   expect(phplint({}, 'web')).toEqual([
@@ -30,7 +30,7 @@ test('it returns no options', () => {
 })
 
 test('it handles partial inputs', () => {
-  let command
+  let command: string[]
   command = phplint(
     {
       exclude: 'vendor,web/themes/contrib'

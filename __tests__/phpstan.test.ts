@@ -1,5 +1,5 @@
-import phpstan from '../src/checks/phpstan'
 import { expect, test } from '@jest/globals'
+import phpstan from '../src/checks/phpstan'
 
 test('it returns defaults', () => {
   expect(phpstan({}, 'web')).toEqual(['phpstan'])
@@ -16,7 +16,7 @@ test('it handles configuration', () => {
 })
 
 test('it can handle single and multiple paths', () => {
-  let command
+  let command: string[]
   command = phpstan(
     {
       paths: ['web/modules/custom']

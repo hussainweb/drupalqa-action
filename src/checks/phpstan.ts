@@ -1,9 +1,8 @@
-import { PhpStanOptions } from '../types.js'
+import type { PhpStanOptions } from '../types.js'
 
 export default function phpstan(
   options: PhpStanOptions,
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  webRoot: string
+  _webRoot: string
 ): string[] {
   const commandArray = ['phpstan']
   if (options.configuration !== undefined) {

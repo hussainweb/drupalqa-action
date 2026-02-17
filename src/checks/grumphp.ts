@@ -1,9 +1,8 @@
-import { GrumPHPOptions } from '../types.js'
+import type { GrumPHPOptions } from '../types.js'
 
 export default function grumphp(
   options: GrumPHPOptions,
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  webRoot: string
+  _webRoot: string
 ): string[] {
   const commandArray = ['grumphp', 'run', '--no-interaction']
   if (options.testsuite !== undefined) {

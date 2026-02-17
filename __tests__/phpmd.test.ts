@@ -1,5 +1,5 @@
-import phpmd from '../src/checks/phpmd'
 import { expect, test } from '@jest/globals'
+import phpmd from '../src/checks/phpmd'
 
 test('it returns defaults', () => {
   expect(phpmd({}, 'web')).toEqual([
@@ -13,7 +13,7 @@ test('it returns defaults', () => {
 })
 
 test('it handles partial inputs', () => {
-  let command
+  let command: string[]
   command = phpmd(
     {
       format: 'json',

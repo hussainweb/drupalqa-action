@@ -51,10 +51,17 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           LINTER_RULES_PATH: .
           VALIDATE_ALL_CODEBASE: true
-          VALIDATE_BIOME_FORMAT: false
-          VALIDATE_BIOME_LINT: false
-          VALIDATE_GITHUB_ACTIONS_ZIZMOR: false
-          VALIDATE_JAVASCRIPT_ES: false
-          VALIDATE_JSCPD: false
-          VALIDATE_TYPESCRIPT_ES: false
-          VALIDATE_JSON: false
+          # Explicitly enable Biome
+          VALIDATE_BIOME_FORMAT: true
+          VALIDATE_BIOME_LINT: true
+          # Explicitly enable other desired linters (matching previous run behavior)
+          VALIDATE_BASH: true
+          VALIDATE_CHECKOV: true
+          VALIDATE_GITHUB_ACTIONS: true
+          VALIDATE_GITLEAKS: true
+          VALIDATE_MARKDOWN: true
+          VALIDATE_NATURAL_LANGUAGE: true
+          VALIDATE_PRE_COMMIT: true
+          VALIDATE_SPELL_CODESPELL: true
+          VALIDATE_TRIVY: true
+          VALIDATE_YAML: true
