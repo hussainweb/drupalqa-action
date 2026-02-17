@@ -51,8 +51,22 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           LINTER_RULES_PATH: .
           VALIDATE_ALL_CODEBASE: true
-          VALIDATE_BIOME_FORMAT: false
-          VALIDATE_BIOME_LINT: false
+          # Enable Biome
+          VALIDATE_BIOME_FORMAT: true
+          VALIDATE_BIOME_LINT: true
+          # Disable Prettier
+          VALIDATE_CSS_PRETTIER: false
+          VALIDATE_GRAPHQL_PRETTIER: false
+          VALIDATE_HTML_PRETTIER: false
+          VALIDATE_JAVASCRIPT_PRETTIER: false
+          VALIDATE_JSON_PRETTIER: false
+          VALIDATE_JSX_PRETTIER: false
+          VALIDATE_MARKDOWN_PRETTIER: false
+          VALIDATE_TYPESCRIPT_PRETTIER: false
+          VALIDATE_TSX_PRETTIER: false
+          VALIDATE_VUE_PRETTIER: false
+          VALIDATE_YAML_PRETTIER: false
+          # Disable other linters
           VALIDATE_GITHUB_ACTIONS_ZIZMOR: false
           VALIDATE_JAVASCRIPT_ES: false
           VALIDATE_JSCPD: false
