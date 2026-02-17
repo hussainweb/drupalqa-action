@@ -7,15 +7,15 @@
   "private": true,
   "scripts": {
     "bundle": "npm run format:write && npm run package",
-    "ci-test": "NODE_OPTIONS=--experimental-vm-modules NODE_NO_WARNINGS=1 npx jest",
-    "coverage": "npx make-coverage-badge --output-path ./badges/coverage.svg",
-    "format:write": "npx @biomejs/biome check --write .",
-    "format:check": "npx @biomejs/biome check .",
-    "lint": "npx @biomejs/biome lint .",
-    "local-action": "npx @github/local-action . src/main.ts .env",
-    "package": "npx rollup --config rollup.config.ts --configPlugin @rollup/plugin-typescript",
+    "ci-test": "NODE_OPTIONS=--experimental-vm-modules NODE_NO_WARNINGS=1 jest",
+    "coverage": "make-coverage-badge --output-path ./badges/coverage.svg",
+    "format:write": "biome check --write .",
+    "format:check": "biome check .",
+    "lint": "biome lint .",
+    "local-action": "local-action . src/main.ts .env",
+    "package": "rollup --config rollup.config.ts --configPlugin @rollup/plugin-typescript",
     "package:watch": "npm run package -- --watch",
-    "test": "NODE_OPTIONS=--experimental-vm-modules NODE_NO_WARNINGS=1 npx jest",
+    "test": "NODE_OPTIONS=--experimental-vm-modules NODE_NO_WARNINGS=1 jest",
     "all": "npm run format:write && npm run lint && npm run test && npm run coverage && npm run package"
   },
   "exports": {

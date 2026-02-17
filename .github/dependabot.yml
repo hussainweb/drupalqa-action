@@ -24,11 +24,6 @@ updates:
       actions:
         patterns:
           - '@actions/*'
-      linters:
-        patterns:
-          - 'eslint*'
-          - 'prettier'
-          - '@typescript-eslint/*'
       test-runners:
         patterns:
           - 'jest'
