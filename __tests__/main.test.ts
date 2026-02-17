@@ -1,4 +1,4 @@
-import { jest, test, expect, describe, beforeEach } from '@jest/globals'
+import { beforeEach, describe, expect, jest, test } from '@jest/globals'
 
 // Mock the external modules
 jest.unstable_mockModule('@actions/core', () => ({
@@ -13,9 +13,9 @@ jest.unstable_mockModule('@actions/exec', () => ({
 
 describe('run function', () => {
   let run: () => Promise<void>
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  // biome-ignore lint/suspicious/noExplicitAny: mocking
   let core: any
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  // biome-ignore lint/suspicious/noExplicitAny: mocking
   let exec: any
 
   beforeEach(async () => {
@@ -36,7 +36,7 @@ describe('run function', () => {
       if (name === 'web-root') return 'web'
       return ''
     })
-    process.env['GITHUB_WORKSPACE'] = '/workspace'
+    process.env.GITHUB_WORKSPACE = '/workspace'
   })
 
   test('it runs successfully with valid php-version 8.4', async () => {

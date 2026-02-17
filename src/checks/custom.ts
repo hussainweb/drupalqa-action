@@ -1,9 +1,8 @@
-import { CustomOptions } from '../types.js'
+import type { CustomOptions } from '../types.js'
 
 export default function custom(
   options: CustomOptions,
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  webRoot: string
+  _webRoot: string
 ): string[] {
   return options.command !== undefined ? options.command : []
 }

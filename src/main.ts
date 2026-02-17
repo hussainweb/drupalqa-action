@@ -1,15 +1,13 @@
 import * as core from '@actions/core'
 import { exec } from '@actions/exec'
 import * as YAML from 'yaml'
-
-import { CheckCallable } from './types.js'
-
 import custom from './checks/custom.js'
 import grumphp from './checks/grumphp.js'
-import phplint from './checks/phplint.js'
 import phpcs from './checks/phpcs.js'
+import phplint from './checks/phplint.js'
 import phpmd from './checks/phpmd.js'
 import phpstan from './checks/phpstan.js'
+import type { CheckCallable } from './types.js'
 
 const availableChecks: {
   [key: string]: CheckCallable
@@ -74,7 +72,7 @@ export async function run(): Promise<void> {
     if (key in availableChecks) {
       checksCommands.push(availableChecks[key](value, webRoot))
     } else if (key.startsWith('custom_')) {
-      checksCommands.push(availableChecks['custom'](value, webRoot))
+      checksCommands.push(availableChecks.custom(value, webRoot))
     } else {
       throw new Error(`invalid check ${key} specified.`)
     }

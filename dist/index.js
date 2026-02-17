@@ -35608,21 +35608,35 @@ function parse(src, reviver, options) {
     return doc.toJS(Object.assign({ reviver: _reviver }, options));
 }
 
-function custom(options, 
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
-webRoot) {
+function custom(options, _webRoot) {
     return options.command !== undefined ? options.command : [];
 }
 
-function grumphp(options, 
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
-webRoot) {
+function grumphp(options, _webRoot) {
     const commandArray = ['grumphp', 'run', '--no-interaction'];
     if (options.testsuite !== undefined) {
         commandArray.push(`--testsuite=${options.testsuite}`);
     }
     if (options.tasks !== undefined) {
         commandArray.push(`--tasks=${options.tasks.join(',')}`);
+    }
+    return commandArray;
+}
+
+function phpcs(options, webRoot) {
+    const commandArray = ['phpcs'];
+    commandArray.push(`--standard=${options.standard !== undefined
+        ? options.standard
+        : 'Drupal,DrupalPractice'}`);
+    commandArray.push(`--extensions=${options.extensions !== undefined
+        ? options.extensions
+        : 'php,module,inc,install,test,profile,theme'}`);
+    if (options.ignore !== undefined) {
+        commandArray.push(`--ignore=${options.ignore}`);
+    }
+    const pathStr = options.path || `${webRoot}/modules/custom`;
+    for (const path of pathStr.split(',')) {
+        commandArray.push(path);
     }
     return commandArray;
 }
@@ -35649,24 +35663,6 @@ function phplint(options, webRoot) {
     return commandArray;
 }
 
-function phpcs(options, webRoot) {
-    const commandArray = ['phpcs'];
-    commandArray.push(`--standard=${options.standard !== undefined
-        ? options.standard
-        : 'Drupal,DrupalPractice'}`);
-    commandArray.push(`--extensions=${options.extensions !== undefined
-        ? options.extensions
-        : 'php,module,inc,install,test,profile,theme'}`);
-    if (options.ignore !== undefined) {
-        commandArray.push(`--ignore=${options.ignore}`);
-    }
-    const pathStr = options.path || `${webRoot}/modules/custom`;
-    for (const path of pathStr.split(',')) {
-        commandArray.push(path);
-    }
-    return commandArray;
-}
-
 function phpmd(options, webRoot) {
     const commandArray = ['phpmd'];
     commandArray.push(options.path || `${webRoot}/modules/custom`);
@@ -35679,9 +35675,7 @@ function phpmd(options, webRoot) {
     return commandArray;
 }
 
-function phpstan(options, 
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
-webRoot) {
+function phpstan(options, _webRoot) {
     const commandArray = ['phpstan'];
     if (options.configuration !== undefined) {
         commandArray.push(`--configuration ${options.configuration}`);
@@ -35747,7 +35741,7 @@ async function run() {
             checksCommands.push(availableChecks[key](value, webRoot));
         }
         else if (key.startsWith('custom_')) {
-            checksCommands.push(availableChecks['custom'](value, webRoot));
+            checksCommands.push(availableChecks.custom(value, webRoot));
         }
         else {
             throw new Error(`invalid check ${key} specified.`);

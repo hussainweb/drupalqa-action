@@ -1,12 +1,12 @@
-import grumphp from '../src/checks/grumphp'
 import { expect, test } from '@jest/globals'
+import grumphp from '../src/checks/grumphp'
 
 test('it returns defaults', () => {
   expect(grumphp({}, 'web')).toEqual(['grumphp', 'run', '--no-interaction'])
 })
 
 test('it handles partial inputs', () => {
-  let command
+  let command: string[]
   command = grumphp(
     {
       testsuite: 'linters'

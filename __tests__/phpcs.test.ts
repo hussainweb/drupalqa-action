@@ -1,5 +1,5 @@
-import phpcs from '../src/checks/phpcs'
 import { expect, test } from '@jest/globals'
+import phpcs from '../src/checks/phpcs'
 
 test('it returns defaults', () => {
   expect(phpcs({}, 'web')).toEqual([
@@ -11,7 +11,7 @@ test('it returns defaults', () => {
 })
 
 test('it handles partial inputs', () => {
-  let command
+  let command: string[]
   command = phpcs(
     {
       standard: 'Drupal',
@@ -33,7 +33,7 @@ test('it handles partial inputs', () => {
 })
 
 test('it can handle single and multiple paths', () => {
-  let command
+  let command: string[]
   command = phpcs(
     {
       path: 'web/modules/custom'
