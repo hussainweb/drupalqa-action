@@ -27,6 +27,7 @@ their corresponding Docker images are as follows. Default: `8.4`.
 | 8.2         | hussainweb/drupalqa:php8.2                   |
 | 8.3         | hussainweb/drupalqa:php8.3                   |
 | 8.4         | hussainweb/drupalqa:php8.4                   |
+| 8.5         | hussainweb/drupalqa:php8.5                   |
 | latest      | hussainweb/drupalqa:latest                   |
 
 Note: The actual Docker image used also depends on the `registry` option. If
