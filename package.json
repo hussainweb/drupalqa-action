@@ -12,6 +12,7 @@
     "format:write": "biome check --write .",
     "format:check": "biome check .",
     "lint": "biome lint .",
+    "biome:migrate": "biome migrate --write",
     "local-action": "local-action . src/main.ts .env",
     "package": "rollup --config rollup.config.ts --configPlugin @rollup/plugin-typescript",
     "package:watch": "npm run package -- --watch",
