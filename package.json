@@ -41,7 +41,7 @@
     "yaml": "^2.8.2"
   },
   "devDependencies": {
-    "@biomejs/biome": "2.4.6",
+    "@biomejs/biome": "2.4.7",
     "@github/local-action": "^7.0.1",
     "@jest/globals": "^30.3.0",
     "@rollup/plugin-commonjs": "^29.0.0",
