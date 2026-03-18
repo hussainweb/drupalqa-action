@@ -112,7 +112,7 @@ If you set this option to true, all other options are ignored.
 
 These are the default options for `phpcs`. All are optional and you can override
 these as per the
-[command line options of phpcs](https://github.com/squizlabs/PHP_CodeSniffer/wiki/Usage).
+[command line options of phpcs](https://github.com/PHPCSStandards/PHP_CodeSniffer/wiki/Usage).
 
 ```yaml
 checks: |
