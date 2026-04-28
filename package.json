@@ -36,7 +36,7 @@
   },
   "homepage": "https://github.com/hussainweb/drupalqa-action#readme",
   "dependencies": {
-    "@actions/core": "^3.0.0",
+    "@actions/core": "^3.0.1",
     "@actions/exec": "^3.0.0",
     "yaml": "^2.8.3"
   },
