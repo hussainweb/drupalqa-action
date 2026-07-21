@@ -48,7 +48,7 @@
     "@rollup/plugin-node-resolve": "^16.0.1",
     "@rollup/plugin-typescript": "^12.3.0",
     "@types/jest": "^30.0.0",
-    "@types/node": "^24.13.2",
+    "@types/node": "^26.1.0",
     "jest": "^30.4.2",
     "js-yaml": "^5.2.1",
     "make-coverage-badge": "^1.2.0",
