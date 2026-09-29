@@ -49,11 +49,11 @@
     "@rollup/plugin-typescript": "^12.3.0",
     "@types/jest": "^30.0.0",
     "@types/node": "^24.13.2",
-    "jest": "^30.5.1",
+    "jest": "^30.5.2",
     "js-yaml": "^5.4.1",
     "make-coverage-badge": "^1.2.0",
     "rollup": "^4.62.3",
-    "ts-jest": "^29.4.12",
+    "ts-jest": "^29.4.14",
     "ts-jest-resolver": "^2.0.1",
     "typescript": "^5.9.3"
   },
