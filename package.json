@@ -43,7 +43,7 @@
   "devDependencies": {
     "@biomejs/biome": "^2.5.13",
     "@github/local-action": "^7.0.1",
-    "@jest/globals": "^30.3.0",
+    "@jest/globals": "^30.5.2",
     "@rollup/plugin-commonjs": "^29.0.3",
     "@rollup/plugin-node-resolve": "^16.0.1",
     "@rollup/plugin-typescript": "^12.3.0",
