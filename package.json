@@ -52,7 +52,7 @@
     "jest": "^30.5.2",
     "js-yaml": "^5.4.1",
     "make-coverage-badge": "^1.2.0",
-    "rollup": "^4.62.3",
+    "rollup": "^4.64.5",
     "ts-jest": "^29.4.14",
     "ts-jest-resolver": "^2.0.1",
     "typescript": "^5.9.3"
